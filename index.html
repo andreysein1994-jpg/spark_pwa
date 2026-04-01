@@ -540,25 +540,25 @@ function closeModal(){$$('modal').classList.remove('show');showM('home');}
 
 load();
 
-function startApp(){
-  var target = U.name ? 'home' : 'onboarding';
-  if(U.name) updHome();
-  // Убираем splash и показываем нужный экран
+// Показываем splash
+document.getElementById('splash').style.display = 'flex';
+
+// Через 1.5 сек переходим к нужному экрану
+setTimeout(function(){
   var splash = document.getElementById('splash');
-  var next = document.getElementById(target);
   if(splash) splash.style.display = 'none';
   document.querySelectorAll('.screen').forEach(function(s){
     s.classList.remove('active');
-    s.style.display = '';
   });
-  if(next) next.classList.add('active');
-}
-
-// Показываем splash сразу
-document.getElementById('splash').style.display = 'flex';
-
-// Запускаем приложение через 1.5 сек
-setTimeout(startApp, 1500);
+  if(U.name){
+    updHome();
+    document.getElementById('home').classList.add('active');
+  } else {
+    document.getElementById('onboarding').classList.add('active');
+    document.querySelectorAll('.ow').forEach(function(s){s.style.display='none'});
+    document.getElementById('s1').style.display='flex';
+  }
+}, 1500);
 </script>
 </body>
 </html>
