@@ -7,10 +7,10 @@
 <meta name="apple-mobile-web-app-title" content="Spark EGЭ">
 <meta name="theme-color" content="#6C63FF">
 <title>Spark — ЕГЭ Английский</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-:root{--green:#58CC02;--green-d:#46A302;--green-l:#D7FFB8;--blue:#1CB0F6;--blue-d:#0996DC;--blue-l:#DDF4FF;--purple:#7C3AED;--purple-m:#A78BFA;--purple-l:#F1DAFF;--yellow:#FFC800;--yellow-d:#D4A700;--yellow-l:#FFF4C2;--red:#FF4B4B;--red-d:#CC0000;--red-l:#FFE0E0;--orange:#FF9600;--bg:#F7F7F7;--card:#fff;--text:#3C3C3C;--muted:#AFAFAF;--border:#E5E5E5;--r:16px;--rl:24px;--f:'Nunito',sans-serif}
+:root{--green:#58CC02;--green-d:#46A302;--green-l:#D7FFB8;--blue:#1CB0F6;--blue-d:#0996DC;--blue-l:#DDF4FF;--purple:#7C3AED;--purple-m:#A78BFA;--purple-l:#F1DAFF;--yellow:#FFC800;--yellow-d:#D4A700;--yellow-l:#FFF4C2;--red:#FF4B4B;--red-d:#CC0000;--red-l:#FFE0E0;--orange:#FF9600;--bg:#F7F7F7;--card:#fff;--text:#3C3C3C;--muted:#AFAFAF;--border:#E5E5E5;--r:16px;--rl:24px;--f:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif}
 html,body{height:100%;background:var(--bg);font-family:var(--f);color:var(--text);overflow:hidden}
 body{display:flex;flex-direction:column;max-width:430px;margin:0 auto}
 .screen{display:none;flex-direction:column;height:100vh;overflow:hidden}
@@ -539,10 +539,16 @@ function showModal(){
 function closeModal(){$$('modal').classList.remove('show');showM('home');}
 
 load();
-setTimeout(()=>{
+function startApp(){
   if(U.name){updHome();showScr('home');}
   else showScr('onboarding');
-},1900);
+}
+setTimeout(startApp, 1500);
+window.addEventListener('load', function(){
+  clearTimeout(window._splashT);
+  window._splashT = setTimeout(startApp, 500);
+});
+window._splashT = setTimeout(startApp, 2500);
 </script>
 </body>
 </html>
