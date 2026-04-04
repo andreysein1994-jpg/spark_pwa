@@ -264,15 +264,10 @@ body{display:flex;flex-direction:column;max-width:430px;margin:0 auto}
 
 <script>
 var AVTS=['&#128522;','&#129418;','&#128060;','&#129409;','&#128056;','&#127775;','&#127919;','&#128640;','&#127752;','&#128142;','&#129419;','&#128044;'];
+var API_URL='http://localhost:8000';
 var U={name:'',av:'&#128522;',lv:'B1',goal:50,xp:0,str:0,les:0,cor:0,tot:0};
 var selAv=null,selLv=null,selGl=null,cur=0,hearts=3,answered=false,selOpt=null;
-var T=[
-  {tp:'c',b:'&#1043;&#1088;&#1072;&#1084;&#1084;&#1072;&#1090;&#1080;&#1082;&#1072; &#183; &#1045;&#1043;&#1069; 2024',q:'By the time we arrived, the train ___ (already/leave).',r:'&#1050; &#1090;&#1086;&#1084;&#1091; &#1074;&#1088;&#1077;&#1084;&#1077;&#1085;&#1080; &#1087;&#1086;&#1077;&#1079;&#1076; (&#1091;&#1078;&#1077; &#1091;&#1096;&#1105;&#1083;) ___.',o:['had already left','has already left','already left','was leaving'],c:0,e:'Past Perfect = had + V3. &#1057;&#1080;&#1075;&#1085;&#1072;&#1083;: by the time.'},
-  {tp:'i',b:'&#1057;&#1083;&#1086;&#1074;&#1086;&#1086;&#1073;&#1088;&#1072;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; &#183; &#1045;&#1043;&#1069; 2024',q:'Her ___ (achieve) in science were outstanding.',r:'&#1045;&#1105; (&#1076;&#1086;&#1089;&#1090;&#1080;&#1078;&#1077;&#1085;&#1080;&#1103;) ___ &#1074; &#1085;&#1072;&#1091;&#1082;&#1077; &#1073;&#1099;&#1083;&#1080; &#1074;&#1099;&#1076;&#1072;&#1102;&#1097;&#1080;&#1084;&#1080;&#1089;&#1103;.',c:'achievements',h:'achieve + &#1089;&#1091;&#1092;&#1092;&#1080;&#1082;&#1089; -ment + &#1084;&#1085;. &#1095;&#1080;&#1089;&#1083;&#1086;',e:'achieve &#8594; achievement (-ment) &#8594; achievements.'},
-  {tp:'c',b:'&#1043;&#1088;&#1072;&#1084;&#1084;&#1072;&#1090;&#1080;&#1082;&#1072; &#183; &#1045;&#1043;&#1069; 2023',q:'He suggested ___ (go) to the cinema after school.',r:'&#1054;&#1085; &#1087;&#1088;&#1077;&#1076;&#1083;&#1086;&#1078;&#1080;&#1083; (&#1087;&#1086;&#1081;&#1090;&#1080;) ___ &#1074; &#1082;&#1080;&#1085;&#1086;.',o:['to go','going','go','gone'],c:1,e:'&#1055;&#1086;&#1089;&#1083;&#1077; suggest &#8212; &#1075;&#1077;&#1088;&#1091;&#1085;&#1076;&#1080;&#1081; (+ing).'},
-  {tp:'c',b:'&#1043;&#1088;&#1072;&#1084;&#1084;&#1072;&#1090;&#1080;&#1082;&#1072; &#183; &#1045;&#1043;&#1069; 2025',q:'The museum ___ (visit) by tourists every year.',r:'&#1052;&#1091;&#1079;&#1077;&#1081; (&#1087;&#1086;&#1089;&#1077;&#1097;&#1072;&#1077;&#1090;&#1089;&#1103;) ___ &#1090;&#1091;&#1088;&#1080;&#1089;&#1090;&#1072;&#1084;&#1080; &#1082;&#1072;&#1078;&#1076;&#1099;&#1081; &#1075;&#1086;&#1076;.',o:['is visited','visits','was visited','has visited'],c:0,e:'Passive Present Simple: is/are + V3.'},
-  {tp:'i',b:'&#1057;&#1083;&#1086;&#1074;&#1086;&#1086;&#1073;&#1088;&#1072;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; &#183; &#1045;&#1043;&#1069; 2023',q:'It is almost ___ (possible) to learn without practice.',r:'&#1055;&#1086;&#1095;&#1090;&#1080; (&#1085;&#1077;&#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1086;) ___ &#1091;&#1095;&#1080;&#1090;&#1100; &#1103;&#1079;&#1099;&#1082; &#1073;&#1077;&#1079; &#1087;&#1088;&#1072;&#1082;&#1090;&#1080;&#1082;&#1080;.',c:'impossible',h:'im- &#1087;&#1077;&#1088;&#1077;&#1076; p/b/m',e:'&#1055;&#1088;&#1080;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072; im-: possible &#8594; impossible.'}
-];
+var T=[];var CURRENT_TASK=null;var LESSON_SIZE=5;
 function G(id){return document.getElementById(id)}
 function show(id){document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on')});G(id).classList.add('on')}
 function sv(){try{localStorage.setItem('sp_u',JSON.stringify(U))}catch(e){}}
@@ -281,14 +276,155 @@ function goStep(n){document.querySelectorAll('.ostep').forEach(function(s){s.sty
 function buildAv(){var g=G('avG');g.innerHTML='';AVTS.forEach(function(a){var b=document.createElement('button');b.className='avb';b.textContent=a;b.addEventListener('click',function(){document.querySelectorAll('.avb').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');selAv=a;G('b2').disabled=false});g.appendChild(b)})}
 function updHome(){var h=new Date().getHours();G('hGr').textContent=h<12?'&#1044;&#1086;&#1073;&#1088;&#1086;&#1077; &#1091;&#1090;&#1088;&#1086;,':h<18?'&#1055;&#1088;&#1080;&#1074;&#1077;&#1090;,':'&#1044;&#1086;&#1073;&#1088;&#1099;&#1081; &#1074;&#1077;&#1095;&#1077;&#1088;,';G('hNm').textContent=U.name+' &#128075;';G('hAv').textContent=U.av;G('hStr').textContent=U.str;G('hXp').textContent=U.xp;G('hLv').textContent=U.lv;G('gXp').textContent=U.goal;G('gXp2').textContent=U.goal;var td=Math.min(U.xp,U.goal);G('tXp').textContent=td;G('dBar').style.width=Math.min(100,Math.round(td/U.goal*100))+'%'}
 function goHome(){updHome();show('home');document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('a')});G('nH').classList.add('a')}
-function startL(){cur=0;hearts=3;answered=false;selOpt=null;updHts();G('lPf').style.width='0%';show('lesson');renderT()}
-function renderT(){if(cur>=T.length){showMod();return}var t=T[cur];G('lPf').style.width=Math.round(cur/T.length*100)+'%';answered=false;selOpt=null;G('rPn').innerHTML='';var h='<div class="tbdg">'+t.b+'</div><div class="tq">'+t.q+'</div><div class="tru">&#127479;&#127482; '+t.r+'</div>';if(t.tp==='c'){h+='<div class="opts">';['A','B','C','D'].forEach(function(l,i){h+='<button class="opt" data-i="'+i+'"><span class="olet">'+l+'</span>'+t.o[i]+'</button>'});h+='</div><button class="chkb" id="cB">&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1080;&#1090;&#1100;</button>'}else{h+='<input class="ainp" id="aI" type="text" placeholder="&#1053;&#1072;&#1087;&#1080;&#1096;&#1080; &#1086;&#1090;&#1074;&#1077;&#1090;..." autocomplete="off" autocorrect="off" autocapitalize="off"><div class="hint">&#128161; '+(t.h||'&#1055;&#1086;&#1076;&#1091;&#1084;&#1072;&#1081; &#1086; &#1092;&#1086;&#1088;&#1084;&#1077; &#1089;&#1083;&#1086;&#1074;&#1072;')+'</div><button class="chkb rdy" id="cB">&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1080;&#1090;&#1100;</button>'}G('lBd').innerHTML=h;if(t.tp==='c'){G('lBd').querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){selO(parseInt(b.dataset.i))})})}G('cB').addEventListener('click',function(){t.tp==='c'?chkC():chkI()})}
+function startL(){
+  cur=0;hearts=3;answered=false;selOpt=null;CURRENT_TASK=null;
+  updHts();G('lPf').style.width='0%';
+  show('lesson');
+  G('lBd').innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:200px;flex-direction:column;gap:12px"><div style="font-size:32px">&#9889;</div><div style="font-size:14px;color:var(--mut);font-weight:600">&#1047;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1077;&#1084; &#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;...</div></div>';
+  loadTask();
+}
+function renderT(){
+  if(cur>=LESSON_SIZE){showMod();return}
+  G('lPf').style.width=Math.round(cur/LESSON_SIZE*100)+'%';
+  answered=false;selOpt=null;G('rPn').innerHTML='';
+  var t=CURRENT_TASK;
+  if(!t){loadTask();return}
+  var h='<div class="tbdg">'+t.badge+'</div><div class="tq">'+t.question+'</div><div class="tru">&#127479;&#127482; '+t.translation+'</div>';
+  if(t.type==='choice'){
+    h+='<div class="opts">';
+    ['A','B','C','D'].forEach(function(l,i){h+='<button class="opt" data-i="'+i+'"><span class="olet">'+l+'</span>'+t.options[i]+'</button>'});
+    h+='</div><button class="chkb" id="cB">&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1080;&#1090;&#1100;</button>';
+  } else {
+    h+='<input class="ainp" id="aI" type="text" placeholder="&#1053;&#1072;&#1087;&#1080;&#1096;&#1080; &#1086;&#1090;&#1074;&#1077;&#1090;..." autocomplete="off" autocorrect="off" autocapitalize="off">';
+    h+='<div class="hint">&#128161; '+(t.hint||'&#1055;&#1086;&#1076;&#1091;&#1084;&#1072;&#1081; &#1086; &#1092;&#1086;&#1088;&#1084;&#1077; &#1089;&#1083;&#1086;&#1074;&#1072;')+'</div>';
+    h+='<button class="chkb rdy" id="cB">&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1080;&#1090;&#1100;</button>';
+  }
+  G('lBd').innerHTML=h;
+  if(t.type==='choice'){
+    G('lBd').querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){selO(parseInt(b.dataset.i))})});
+  }
+  G('cB').addEventListener('click',function(){t.type==='choice'?chkC():chkI()});
+}
 function selO(i){if(answered)return;selOpt=i;G('lBd').querySelectorAll('.opt').forEach(function(b,x){b.classList.toggle('sel',x===i);var l=b.querySelector('.olet');l.style.background=x===i?'var(--b)':'';l.style.color=x===i?'#fff':''});G('cB').classList.add('rdy')}
-function chkC(){if(answered||selOpt===null)return;answered=true;var t=T[cur],ok=selOpt===t.c;U.tot++;if(ok)U.cor++;G('lBd').querySelectorAll('.opt').forEach(function(b,i){if(i===t.c){b.classList.add('cor');var l=b.querySelector('.olet');l.style.background='var(--g)';l.style.color='#fff'}else if(i===selOpt&&!ok){b.classList.add('wrg');var l=b.querySelector('.olet');l.style.background='var(--r)';l.style.color='#fff'}});showRes(ok,t.e,t.o[t.c])}
-function chkI(){if(answered)return;answered=true;var t=T[cur],inp=G('aI');var v=inp?inp.value.trim().toLowerCase():'';var ok=v===t.c.toLowerCase();U.tot++;if(ok)U.cor++;if(inp)inp.classList.add(ok?'cor':'wrg');showRes(ok,t.e,t.c)}
-function showRes(ok,e,ca){if(!ok){hearts=Math.max(0,hearts-1);updHts()}U.xp+=ok?10:2;sv();G('rPn').innerHTML='<div class="rpnl '+(ok?'ok':'fail')+'"><div class="rico">'+(ok?'&#127881;':'&#128148;')+'</div><div class="rtit">'+(ok?'&#1055;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1086;!':'&#1053;&#1077; &#1089;&#1086;&#1074;&#1089;&#1077;&#1084;...')+'</div><div class="rexp">'+(ok?e:'&#1055;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1099;&#1081; &#1086;&#1090;&#1074;&#1077;&#1090;: <strong>'+ca+'</strong><br>'+e)+'</div><button class="ctbtn" id="ctB">&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1100; &#8594;</button></div>';G('ctB').addEventListener('click',function(){cur++;renderT()})}
+function chkC(){
+  if(answered||selOpt===null)return;
+  answered=true;
+  var t=CURRENT_TASK;
+  var userAns=String(selOpt);
+  // Показываем правильный/неправильный вариант
+  var ok=(selOpt===t.correct_index);
+  U.tot++;if(ok)U.cor++;
+  G('lBd').querySelectorAll('.opt').forEach(function(b,i){
+    if(i===t.correct_index){b.classList.add('cor');var l=b.querySelector('.olet');l.style.background='var(--g)';l.style.color='#fff';}
+    else if(i===selOpt&&!ok){b.classList.add('wrg');var l=b.querySelector('.olet');l.style.background='var(--r)';l.style.color='#fff';}
+  });
+  // Отправляем на сервер для объяснения
+  checkOnServer(t, userAns, ok);
+}
+function chkI(){
+  if(answered)return;
+  answered=true;
+  var t=CURRENT_TASK;
+  var inp=G('aI');
+  var v=inp?inp.value.trim().toLowerCase():'';
+  var ok=v===t.correct.toLowerCase();
+  U.tot++;if(ok)U.cor++;
+  if(inp)inp.classList.add(ok?'cor':'wrg');
+  checkOnServer(t, v, ok);
+}
+function showRes(ok,e,ca){if(!ok){hearts=Math.max(0,hearts-1);updHts()}U.xp+=ok?10:2;sv();G('rPn').innerHTML='<div class="rpnl '+(ok?'ok':'fail')+'"><div class="rico">'+(ok?'&#127881;':'&#128148;')+'</div><div class="rtit">'+(ok?'&#1055;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1086;!':'&#1053;&#1077; &#1089;&#1086;&#1074;&#1089;&#1077;&#1084;...')+'</div><div class="rexp">'+(ok?e:'&#1055;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1099;&#1081; &#1086;&#1090;&#1074;&#1077;&#1090;: <strong>'+ca+'</strong><br>'+e)+'</div><button class="ctbtn" id="ctB">&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1100; &#8594;</button></div>';G('ctB').addEventListener('click',function(){
+  cur++;CURRENT_TASK=null;
+  if(cur<LESSON_SIZE){
+    G('lBd').innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:200px;flex-direction:column;gap:12px"><div style="font-size:32px">&#9889;</div><div style="font-size:14px;color:var(--mut);font-weight:600">&#1047;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1077;&#1084;...</div></div>';
+    G('rPn').innerHTML='';
+    loadTask();
+  } else {
+    renderT();
+  }
+})}
 function updHts(){[1,2,3].forEach(function(i){var h=G('h'+i);if(h)h.classList.toggle('lost',i>hearts)})}
-function showMod(){U.les++;U.str=Math.max(1,U.str);sv();G('mSb').textContent='&#1052;&#1086;&#1083;&#1086;&#1076;&#1077;&#1094;, '+U.name+'! &#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1072;&#1081; &#1074; &#1090;&#1086;&#1084; &#1078;&#1077; &#1076;&#1091;&#1093;&#1077;!';G('modal').classList.add('on')}
+function showMod(){
+  U.les++;U.str=Math.max(1,U.str);sv();
+  G('mSb').textContent='&#1052;&#1086;&#1083;&#1086;&#1076;&#1077;&#1094;, '+U.name+'! &#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1072;&#1081; &#1074; &#1090;&#1086;&#1084; &#1078;&#1077; &#1076;&#1091;&#1093;&#1077;!';
+  G('modal').classList.add('on');
+  // Сохраняем прогресс на сервер
+  fetch(API_URL+'/progress',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({user_id:U.name||'guest',xp_earned:U.xp,correct:U.cor,total:U.tot,section:'grammar'})
+  }).catch(function(){});
+}
+
+function loadTask(){
+  var sec=null;
+  fetch(API_URL+'/task'+(sec?'?section='+sec:''))
+    .then(function(r){return r.json()})
+    .then(function(task){
+      // Нормализуем поля задания с API
+      CURRENT_TASK={
+        task_id: task.task_id||'',
+        type: task.type||'choice',
+        badge: task.badge||task.b||'ЕГЭ',
+        question: task.question||task.q||'',
+        translation: task.translation||task.r||'',
+        options: task.options||task.o||[],
+        correct: task.correct||task.c||'',
+        correct_index: typeof task.correct==='number'?task.correct:(task.c||0),
+        hint: task.hint||task.h||'',
+        explanation: task.explanation||task.e||''
+      };
+      renderT();
+    })
+    .catch(function(){
+      // Fallback — показываем офлайн задание
+      var fallback=[
+        {task_id:'f1',type:'choice',badge:'&#1043;&#1088;&#1072;&#1084;&#1084;&#1072;&#1090;&#1080;&#1082;&#1072;',question:'She ___ (work) here for 5 years.',translation:'&#1054;&#1085;&#1072; (&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1077;&#1090;) &#1079;&#1076;&#1077;&#1089;&#1100; 5 &#1083;&#1077;&#1090;.',options:['has worked','worked','is working','works'],correct_index:0,correct:0,hint:'',explanation:'Present Perfect: has/have + V3'},
+        {task_id:'f2',type:'input',badge:'&#1057;&#1083;&#1086;&#1074;&#1086;&#1086;&#1073;&#1088;&#1072;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;',question:'She showed great ___ (kind).',translation:'&#1054;&#1085;&#1072; &#1087;&#1088;&#1086;&#1103;&#1074;&#1080;&#1083;&#1072; &#1073;&#1086;&#1083;&#1100;&#1096;&#1091;&#1102; (&#1076;&#1086;&#1073;&#1088;&#1086;&#1090;&#1091;).',correct:'kindness',hint:'kind + &#1089;&#1091;&#1092;&#1092;&#1080;&#1082;&#1089; -ness',explanation:'kind &#8594; kindness (&#1089;&#1091;&#1092;&#1092;&#1080;&#1082;&#1089; -ness)'}
+      ];
+      CURRENT_TASK=fallback[Math.floor(Math.random()*fallback.length)];
+      renderT();
+    });
+}
+
+function checkOnServer(task, userAnswer, isCorrect){
+  var xp=isCorrect?10:2;
+  // Если правильно — просто показываем результат
+  if(isCorrect){
+    if(!isCorrect)hearts=Math.max(0,hearts-1);
+    U.xp+=xp;sv();
+    showRes(true, task.explanation||'&#1054;&#1090;&#1083;&#1080;&#1095;&#1085;&#1086;!', '');
+    return;
+  }
+  // Если неправильно — запрашиваем объяснение с сервера
+  hearts=Math.max(0,hearts-1);updHts();
+  U.xp+=xp;sv();
+  // Показываем временное объяснение пока грузится
+  var ca=task.type==='choice'?(task.options[task.correct_index]||''):task.correct;
+  showRes(false, task.explanation||'&#1047;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1077;&#1084;...', ca);
+  // Запрашиваем объяснение от Groq
+  fetch(API_URL+'/check',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      user_id:U.name||'guest',
+      task_id:task.task_id||'',
+      question:task.question,
+      user_answer:String(userAnswer),
+      correct_answer:ca,
+      section:task.section||'grammar'
+    })
+  })
+  .then(function(r){return r.json()})
+  .then(function(data){
+    // Обновляем объяснение если пришло с сервера
+    var expEl=G('rPn').querySelector('.rexp');
+    if(expEl&&data.explanation){
+      expEl.innerHTML='&#1055;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1099;&#1081; &#1086;&#1090;&#1074;&#1077;&#1090;: <strong>'+ca+'</strong><br>'+data.explanation;
+    }
+  })
+  .catch(function(){});
+}
+
 G('nameIn').addEventListener('input',function(){var v=this.value.trim();G('b1').disabled=v.length<2;this.classList.toggle('ok',v.length>=2)});
 G('b1').addEventListener('click',function(){goStep(2)});
 G('b2').addEventListener('click',function(){goStep(3)});
