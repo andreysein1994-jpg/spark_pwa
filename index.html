@@ -8,193 +8,220 @@
 <meta name="theme-color" content="#6C63FF">
 <title>Spark EGE</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif}
 :root{--g:#58CC02;--gd:#46A302;--gl:#D7FFB8;--b:#1CB0F6;--bd:#0996DC;--bl:#DDF4FF;--p:#7C3AED;--pm:#A78BFA;--pl:#F1DAFF;--y:#FFC800;--yd:#D4A700;--yl:#FFF4C2;--r:#FF4B4B;--rd:#CC0000;--rl:#FFE0E0;--bg:#F7F7F7;--card:#fff;--txt:#3C3C3C;--mut:#AFAFAF;--brd:#E5E5E5}
-html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;color:var(--txt);overflow:hidden}
+html,body{height:100%;background:var(--bg);color:var(--txt);overflow:hidden}
 body{display:flex;flex-direction:column;max-width:430px;margin:0 auto}
 .scr{display:none;flex-direction:column;height:100vh;overflow:hidden}
 .scr.on{display:flex}
+
+/* SPLASH */
 #splash{background:linear-gradient(160deg,#6C63FF,#A78BFA);align-items:center;justify-content:center;gap:10px}
-.sico{font-size:72px;animation:bou 1s ease infinite alternate}
-.stit{font-size:34px;font-weight:900;color:#fff}
-.ssub{font-size:15px;color:rgba(255,255,255,.8);font-weight:600}
-.sbar{width:170px;height:7px;background:rgba(255,255,255,.3);border-radius:99px;overflow:hidden;margin-top:24px}
-.sfil{height:100%;background:#fff;border-radius:99px;animation:lod 1.4s ease forwards}
-@keyframes bou{from{transform:translateY(0)}to{transform:translateY(-8px)}}
-@keyframes lod{from{width:0}to{width:100%}}
+.sl{font-size:72px;animation:bou 1s ease infinite alternate}
+@keyframes bou{0%{transform:translateY(0)}100%{transform:translateY(-10px)}}
+.st{font-size:34px;font-weight:900;color:#fff}
+.ss{font-size:15px;color:rgba(255,255,255,.8);font-weight:600}
+.sb{width:170px;height:7px;background:rgba(255,255,255,.3);border-radius:99px;overflow:hidden;margin-top:24px}
+.sf{height:100%;background:#fff;border-radius:99px;animation:ld 1.4s ease forwards}
+@keyframes ld{0%{width:0}100%{width:100%}}
+
+/* ONBOARD */
 #onboard{background:var(--bg);overflow-y:auto}
 .ostep{display:none;flex-direction:column;padding:0 20px 36px;min-height:100vh}
-.ohero{background:linear-gradient(135deg,#6C63FF,#A78BFA);margin:0 -20px 22px;padding:42px 20px 34px;text-align:center;border-radius:0 0 34px 34px}
-.ohi{font-size:52px;margin-bottom:8px}
-.oht{font-size:25px;font-weight:900;color:#fff;margin-bottom:5px}
-.ohs{font-size:14px;color:rgba(255,255,255,.85);font-weight:600}
+.oh{background:linear-gradient(135deg,#6C63FF,#A78BFA);margin:0 -20px 22px;padding:42px 20px 34px;text-align:center;border-radius:0 0 32px 32px}
+.ohi{font-size:52px;margin-bottom:8px}.oht{font-size:24px;font-weight:900;color:#fff;margin-bottom:5px}.ohs{font-size:14px;color:rgba(255,255,255,.85);font-weight:600}
 .olbl{font-size:11px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;margin-bottom:9px;margin-top:18px}
-.oinp{width:100%;border:3px solid var(--brd);border-radius:14px;padding:15px 16px;font-size:17px;font-weight:700;background:var(--card);outline:none;transition:border-color .2s;font-family:inherit}
-.oinp:focus{border-color:var(--pm)}
-.oinp.ok{border-color:var(--g)}
-.avgg{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
-.avb{aspect-ratio:1;border:3px solid var(--brd);border-radius:17px;background:var(--card);font-size:30px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
-.avb.sel{border-color:var(--pm);background:var(--pl);transform:scale(1.05)}
-.lvgg{display:flex;flex-direction:column;gap:9px}
-.lvb{border:3px solid var(--brd);border-radius:14px;background:var(--card);padding:13px 15px;cursor:pointer;display:flex;align-items:center;gap:11px;transition:all .15s;font-family:inherit;text-align:left}
-.lvb.sel{border-color:var(--pm);background:var(--pl)}
-.lvico{font-size:26px;flex-shrink:0}
-.lvt{font-size:15px;font-weight:800;display:block}
-.lvs{font-size:12px;color:var(--mut);font-weight:600}
+.oi{width:100%;border:3px solid var(--brd);border-radius:14px;padding:15px 16px;font-size:17px;font-weight:700;background:var(--card);outline:none;transition:border-color .2s}
+.oi:focus{border-color:var(--pm)}.oi.ok{border-color:var(--g)}
+.ag{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.ab{aspect-ratio:1;border:3px solid var(--brd);border-radius:17px;background:var(--card);font-size:30px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.ab.sel{border-color:var(--pm);background:var(--pl);transform:scale(1.05)}
+.lvg{display:flex;flex-direction:column;gap:9px}
+.lb{border:3px solid var(--brd);border-radius:14px;background:var(--card);padding:13px 15px;cursor:pointer;display:flex;align-items:center;gap:11px;text-align:left;width:100%;transition:all .15s}
+.lb.sel{border-color:var(--pm);background:var(--pl)}
+.li{font-size:26px;flex-shrink:0}.lt{font-size:15px;font-weight:800;display:block}.ls2{font-size:12px;color:var(--mut);font-weight:600}
 .gg{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.gb{border:3px solid var(--brd);border-radius:19px;background:var(--card);padding:15px 11px;cursor:pointer;text-align:center;transition:all .15s;font-family:inherit}
+.gb{border:3px solid var(--brd);border-radius:19px;background:var(--card);padding:15px 11px;cursor:pointer;text-align:center;transition:all .15s;width:100%}
 .gb.sel{border-color:var(--g);background:var(--gl)}
-.gico{font-size:26px;margin-bottom:5px;display:block}
-.gtit{font-size:13px;font-weight:800;display:block}
-.gxp{font-size:11px;color:var(--mut);font-weight:600}
-.obtn{width:100%;padding:17px;border-radius:14px;border:none;font-size:17px;font-weight:800;cursor:pointer;background:var(--pm);color:#fff;border-bottom:4px solid var(--p);margin-top:22px;font-family:inherit;transition:all .1s}
-.obtn:disabled{background:var(--brd);color:var(--mut);border-bottom-color:#ccc;cursor:not-allowed}
-.obtn:not(:disabled):active{transform:translateY(2px);border-bottom-width:2px}
+.gi{font-size:26px;margin-bottom:5px;display:block}.gt{font-size:13px;font-weight:800;display:block}.gx{font-size:11px;color:var(--mut);font-weight:600}
+.ob{width:100%;padding:17px;border-radius:14px;border:none;font-size:17px;font-weight:800;cursor:pointer;background:var(--pm);color:#fff;border-bottom:4px solid var(--p);margin-top:22px;transition:all .1s}
+.ob:disabled{background:var(--brd);color:var(--mut);border-bottom-color:#ccc;cursor:not-allowed}
+.ob:not(:disabled):active{transform:translateY(2px);border-bottom-width:2px}
 .dots{display:flex;justify-content:center;gap:7px;margin-top:13px}
-.dot{width:7px;height:7px;border-radius:99px;background:var(--brd);transition:all .3s}
-.dot.a{background:var(--pm);width:22px}
+.dot{width:7px;height:7px;border-radius:99px;background:var(--brd);transition:all .3s}.dot.a{background:var(--pm);width:22px}
+
+/* WELCOME */
 #welcome{background:linear-gradient(160deg,#6C63FF,#A78BFA,#C4B5FD);align-items:center;justify-content:center;padding:36px 20px;text-align:center;gap:18px}
 .wav{width:90px;height:90px;border-radius:27px;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:50px;border:4px solid rgba(255,255,255,.5)}
-.whi{font-size:25px;font-weight:900;color:#fff}
-.wnm{font-size:33px;font-weight:900;color:#fff;background:rgba(255,255,255,.2);border-radius:14px;padding:8px 22px}
-.wsub{font-size:15px;color:rgba(255,255,255,.85);font-weight:600;line-height:1.6;max-width:280px}
-.wbtn{background:#fff;color:var(--p);border:none;border-radius:14px;padding:17px;font-size:17px;font-weight:900;cursor:pointer;border-bottom:4px solid rgba(0,0,0,.1);width:100%;font-family:inherit}
-.wbtn:active{transform:translateY(2px);border-bottom-width:2px}
+.whi{font-size:25px;font-weight:900;color:#fff}.wnm{font-size:33px;font-weight:900;color:#fff;background:rgba(255,255,255,.2);border-radius:14px;padding:8px 22px}
+.ws{font-size:15px;color:rgba(255,255,255,.85);font-weight:600;line-height:1.6;max-width:280px}
+.wb{background:#fff;color:var(--p);border:none;border-radius:14px;padding:17px;font-size:17px;font-weight:900;cursor:pointer;border-bottom:4px solid rgba(0,0,0,.1);width:100%}
+.wb:active{transform:translateY(2px);border-bottom-width:2px}
+
+/* HOME */
 #home{background:var(--bg)}
 .htop{background:linear-gradient(135deg,#6C63FF,#A78BFA);padding:20px 20px 34px;position:relative;overflow:hidden;flex-shrink:0}
 .htop::after{content:'';position:absolute;bottom:-17px;left:0;right:0;height:34px;background:var(--bg);border-radius:50% 50% 0 0/34px}
-.huser{display:flex;align-items:center;gap:10px;margin-bottom:13px}
+.hu{display:flex;align-items:center;gap:10px;margin-bottom:13px}
 .hav{width:42px;height:42px;border-radius:13px;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:22px;border:2px solid rgba(255,255,255,.4);flex-shrink:0}
-.hgr{font-size:12px;color:rgba(255,255,255,.8);font-weight:600}
-.hnm{font-size:19px;font-weight:900;color:#fff}
-.hstats{display:flex;gap:9px}
+.hg{font-size:12px;color:rgba(255,255,255,.8);font-weight:600}.hn{font-size:19px;font-weight:900;color:#fff}
+.hst{display:flex;gap:9px}
 .pill{background:rgba(255,255,255,.2);border-radius:99px;padding:6px 12px;color:#fff;font-weight:700;font-size:12px}
-.hscr{flex:1;overflow-y:auto;padding:22px 20px;display:flex;flex-direction:column;gap:13px}
-.hscr::-webkit-scrollbar{display:none}
-.dayc{background:var(--card);border-radius:19px;padding:15px;border:2px solid var(--brd)}
-.dayt{font-size:11px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
-.xpw{background:var(--brd);border-radius:99px;height:13px;overflow:hidden;margin-bottom:5px}
-.xpb{height:100%;background:linear-gradient(90deg,var(--g),#7FD320);border-radius:99px;transition:width .5s}
-.xpl{font-size:12px;color:var(--mut);font-weight:600;text-align:right}
-.lbtn{background:var(--g);border:none;border-radius:19px;padding:17px;color:#fff;font-size:17px;font-weight:800;cursor:pointer;width:100%;border-bottom:4px solid var(--gd);font-family:inherit;transition:all .1s;display:flex;align-items:center;justify-content:center;gap:8px}
+.hs{flex:1;overflow-y:auto;padding:22px 20px;display:flex;flex-direction:column;gap:13px}
+.hs::-webkit-scrollbar{display:none}
+.dc{background:var(--card);border-radius:19px;padding:15px;border:2px solid var(--brd)}
+.dt{font-size:11px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.xw{background:var(--brd);border-radius:99px;height:13px;overflow:hidden;margin-bottom:5px}
+.xb{height:100%;background:linear-gradient(90deg,var(--g),#7FD320);border-radius:99px;transition:width .5s}
+.xl{font-size:12px;color:var(--mut);font-weight:600;text-align:right}
+.lbtn{background:var(--g);border:none;border-radius:19px;padding:17px;color:#fff;font-size:17px;font-weight:800;cursor:pointer;width:100%;border-bottom:4px solid var(--gd);display:flex;align-items:center;justify-content:center;gap:8px;transition:all .1s}
 .lbtn:active{transform:translateY(2px);border-bottom-width:2px}
 .sgt{font-size:16px;font-weight:800}
-.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-.sbtn{border:2px solid var(--brd);border-radius:19px;padding:15px 13px;cursor:pointer;text-align:left;transition:transform .1s;font-family:inherit;background:var(--card)}
-.sbtn:active{transform:scale(.96)}
-.sico{font-size:28px;margin-bottom:7px;display:block}
-.snm{font-size:14px;font-weight:800;display:block;margin-bottom:2px}
-.sct{font-size:11px;color:var(--mut);font-weight:600}
-.sbtn.gr{border-color:#C4B5FD;background:linear-gradient(135deg,#F5F3FF,#EDE9FE)}
-.sbtn.vc{border-color:#BBF7D0;background:linear-gradient(135deg,#F0FDF4,#DCFCE7)}
-.sbtn.rd{border-color:#BFDBFE;background:linear-gradient(135deg,#EFF6FF,#DBEAFE)}
-.sbtn.wr{border-color:#FED7AA;background:linear-gradient(135deg,#FFF7ED,#FFEDD5)}
-.sbtn.ls{border-color:#FBCFE8;background:linear-gradient(135deg,#FDF2F8,#FCE7F3)}
-.sbtn.sp{border-color:#A5F3FC;background:linear-gradient(135deg,#ECFEFF,#CFFAFE)}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.sb2{border:2px solid var(--brd);border-radius:19px;padding:15px 13px;cursor:pointer;text-align:left;transition:transform .1s;background:var(--card)}
+.sb2:active{transform:scale(.96)}
+.si{font-size:28px;margin-bottom:7px;display:block}.sn{font-size:14px;font-weight:800;display:block;margin-bottom:2px}.sc{font-size:11px;color:var(--mut);font-weight:600}
+.sb2.gr{border-color:#C4B5FD;background:linear-gradient(135deg,#F5F3FF,#EDE9FE)}
+.sb2.vc{border-color:#BBF7D0;background:linear-gradient(135deg,#F0FDF4,#DCFCE7)}
+.sb2.rd{border-color:#BFDBFE;background:linear-gradient(135deg,#EFF6FF,#DBEAFE)}
+.sb2.wr{border-color:#FED7AA;background:linear-gradient(135deg,#FFF7ED,#FFEDD5)}
+.sb2.ls{border-color:#FBCFE8;background:linear-gradient(135deg,#FDF2F8,#FCE7F3)}
+.sb2.sp{border-color:#A5F3FC;background:linear-gradient(135deg,#ECFEFF,#CFFAFE)}
+
+/* LESSON */
 #lesson{background:var(--bg)}
-.lprog{padding:14px 18px 7px;display:flex;align-items:center;gap:9px;background:#fff;flex-shrink:0}
-.pbar{flex:1;background:var(--brd);border-radius:99px;height:12px;overflow:hidden}
-.pfil{height:100%;background:linear-gradient(90deg,var(--g),#7FD320);border-radius:99px;transition:width .4s}
-.hts{display:flex;gap:3px}
-.ht{font-size:19px;transition:all .2s}
-.ht.lost{opacity:.2;transform:scale(.8)}
-.xpbg{background:var(--yl);color:var(--yd);border-radius:99px;padding:3px 9px;font-size:12px;font-weight:800}
-.lbody{flex:1;overflow-y:auto;padding:22px 18px;display:flex;flex-direction:column;gap:15px}
-.lbody::-webkit-scrollbar{display:none}
+.lp{padding:14px 18px 7px;display:flex;align-items:center;gap:9px;background:#fff;flex-shrink:0;border-bottom:1px solid var(--brd)}
+.pb{flex:1;background:var(--brd);border-radius:99px;height:12px;overflow:hidden}
+.pf{height:100%;background:linear-gradient(90deg,var(--g),#7FD320);border-radius:99px;transition:width .4s}
+.hts{display:flex;gap:3px}.ht2{font-size:19px;transition:all .2s}.ht2.lost{opacity:.2;transform:scale(.8)}
+.xbg{background:var(--yl);color:var(--yd);border-radius:99px;padding:3px 9px;font-size:12px;font-weight:800}
+.lb3{flex:1;overflow-y:auto;padding:22px 18px;display:flex;flex-direction:column;gap:15px}
+.lb3::-webkit-scrollbar{display:none}
+.sectip{background:linear-gradient(135deg,rgba(108,99,255,.07),rgba(167,139,250,.07));border:1.5px solid rgba(108,99,255,.2);border-radius:12px;padding:11px 14px;font-size:12px;color:#534AB7;font-weight:600;line-height:1.6}
+.sectip b{color:#3C3489;font-weight:800}
+.stip-t{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;opacity:.65;margin-bottom:4px;display:block}
 .tbdg{display:inline-flex;align-items:center;background:var(--pl);color:var(--p);border-radius:99px;padding:5px 12px;font-size:12px;font-weight:700}
 .tq{font-size:19px;font-weight:800;line-height:1.4}
-.tru{font-size:14px;color:var(--mut);font-weight:600;background:var(--bg);border-radius:11px;padding:11px 14px;border:2px dashed var(--brd);line-height:1.5}
-.opts{display:flex;flex-direction:column;gap:9px}
-.opt{background:var(--card);border:3px solid var(--brd);border-radius:14px;padding:14px 15px;font-size:15px;font-weight:700;cursor:pointer;text-align:left;display:flex;align-items:center;gap:9px;color:var(--txt);transition:all .15s;font-family:inherit;width:100%}
-.opt.sel{border-color:var(--b);background:var(--bl)}
-.opt.cor{border-color:var(--g);background:var(--gl);color:var(--gd)}
-.opt.wrg{border-color:var(--r);background:var(--rl);color:var(--rd)}
-.olet{width:29px;height:29px;border-radius:7px;background:var(--brd);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;flex-shrink:0;transition:all .2s}
-.opt.sel .olet{background:var(--b);color:#fff}
-.opt.cor .olet{background:var(--g);color:#fff}
-.opt.wrg .olet{background:var(--r);color:#fff}
-.ainp{border:3px solid var(--brd);border-radius:14px;padding:14px;font-size:17px;font-weight:700;width:100%;background:var(--card);color:var(--txt);outline:none;transition:border-color .2s;font-family:inherit}
-.ainp:focus{border-color:var(--b)}
-.ainp.cor{border-color:var(--g);background:var(--gl)}
-.ainp.wrg{border-color:var(--r);background:var(--rl)}
+.tru{font-size:14px;color:var(--mut);font-weight:600;background:#fff;border-radius:11px;padding:11px 14px;border:2px dashed var(--brd);line-height:1.5}
 .hint{font-size:12px;color:var(--mut);font-weight:600}
-.chkb{width:100%;padding:15px;border-radius:14px;border:none;font-size:16px;font-weight:800;cursor:pointer;background:var(--brd);color:var(--mut);border-bottom:4px solid #ccc;font-family:inherit;transition:all .1s}
-.chkb.rdy{background:var(--b);color:#fff;border-bottom-color:var(--bd)}
-.chkb:active{transform:translateY(2px);border-bottom-width:2px}
+.acard{background:#fff;border:2px solid var(--brd);border-radius:13px;padding:14px;font-size:13px;line-height:1.75;color:var(--txt)}
+.aplay{background:var(--p);border:none;border-radius:99px;padding:10px 20px;color:#fff;font-size:13px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:6px;margin:0 auto}
+.rcard{background:#fff;border:2px solid var(--brd);border-radius:13px;padding:14px;font-size:12px;line-height:1.8;max-height:160px;overflow-y:auto}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{background:var(--card);border:3px solid var(--brd);border-radius:14px;padding:14px 15px;font-size:15px;font-weight:700;cursor:pointer;text-align:left;display:flex;align-items:center;gap:9px;color:var(--txt);transition:all .15s;width:100%}
+.opt.sel{border-color:var(--b);background:var(--bl)}.opt.cor{border-color:var(--g);background:var(--gl);color:var(--gd)}.opt.wrg{border-color:var(--r);background:var(--rl);color:var(--rd)}
+.olet{width:29px;height:29px;border-radius:7px;background:var(--brd);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;flex-shrink:0;transition:all .2s}
+.opt.sel .olet{background:var(--b);color:#fff}.opt.cor .olet{background:var(--g);color:#fff}.opt.wrg .olet{background:var(--r);color:#fff}
+.ainp{border:3px solid var(--brd);border-radius:14px;padding:14px;font-size:17px;font-weight:700;width:100%;background:var(--card);color:var(--txt);outline:none;transition:border-color .2s}
+.ainp:focus{border-color:var(--b)}.ainp.cor{border-color:var(--g);background:var(--gl)}.ainp.wrg{border-color:var(--r);background:var(--rl)}
+.chkb{width:100%;padding:15px;border-radius:14px;border:none;font-size:16px;font-weight:800;cursor:pointer;background:var(--brd);color:var(--mut);border-bottom:4px solid #ccc;transition:all .1s}
+.chkb.rdy{background:var(--b);color:#fff;border-bottom-color:var(--bd)}.chkb:active{transform:translateY(2px);border-bottom-width:2px}
 .rpnl{border-radius:20px 20px 0 0;padding:18px;flex-shrink:0}
-.rpnl.ok{background:var(--gl);border-top:3px solid var(--g)}
-.rpnl.fail{background:var(--rl);border-top:3px solid var(--r)}
-.rico{font-size:26px;margin-bottom:3px}
-.rtit{font-size:17px;font-weight:900;margin-bottom:5px}
-.rpnl.ok .rtit{color:var(--gd)}
-.rpnl.fail .rtit{color:var(--rd)}
-.rexp{font-size:13px;font-weight:600;opacity:.8;line-height:1.5;margin-bottom:13px}
-.ctbtn{width:100%;padding:15px;border-radius:14px;border:none;font-size:16px;font-weight:800;cursor:pointer;border-bottom:4px solid transparent;font-family:inherit}
-.rpnl.ok .ctbtn{background:var(--g);color:#fff;border-bottom-color:var(--gd)}
-.rpnl.fail .ctbtn{background:var(--r);color:#fff;border-bottom-color:var(--rd)}
+.rpnl.ok{background:var(--gl);border-top:3px solid var(--g)}.rpnl.fail{background:var(--rl);border-top:3px solid var(--r)}
+.rico{font-size:26px;margin-bottom:3px}.rtit{font-size:17px;font-weight:900;margin-bottom:5px}
+.rpnl.ok .rtit{color:var(--gd)}.rpnl.fail .rtit{color:var(--rd)}
+.rexp{font-size:13px;font-weight:600;opacity:.85;line-height:1.55;margin-bottom:13px}
+.ctbtn{width:100%;padding:15px;border-radius:14px;border:none;font-size:16px;font-weight:800;cursor:pointer;border-bottom:4px solid transparent}
+.rpnl.ok .ctbtn{background:var(--g);color:#fff;border-bottom-color:var(--gd)}.rpnl.fail .ctbtn{background:var(--r);color:#fff;border-bottom-color:var(--rd)}
 .ctbtn:active{transform:translateY(2px);border-bottom-width:2px}
+
+/* PROGRESS */
+#progress{background:var(--bg)}
+.hdr{padding:14px 18px 10px;background:#fff;border-bottom:2px solid var(--brd);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.hb{width:38px;height:38px;border-radius:11px;background:var(--bg);border:none;font-size:16px;cursor:pointer}
+.htt{font-size:17px;font-weight:800;flex:1}
+.ps{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px}
+.ps::-webkit-scrollbar{display:none}
+.ph{background:linear-gradient(135deg,#6C63FF,#A78BFA);border-radius:19px;padding:22px;color:#fff;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center}
+.plv{font-size:44px;font-weight:900}.pll{font-size:13px;opacity:.8;font-weight:600}.px{font-size:18px;font-weight:800}
+.sg2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.sk{background:var(--card);border:2px solid var(--brd);border-radius:17px;padding:16px}
+.ski{font-size:26px;margin-bottom:5px}.skv{font-size:24px;font-weight:900;display:block}.skl{font-size:12px;color:var(--mut);font-weight:600}
+.tr3{background:var(--card);border:2px solid var(--brd);border-radius:13px;padding:13px 14px;display:flex;align-items:center;gap:11px}
+.ti{font-size:22px;flex-shrink:0}.tn{font-size:14px;font-weight:700}
+.tbw{background:var(--brd);border-radius:99px;height:8px;margin-top:5px;overflow:hidden}
+.tb{height:100%;border-radius:99px}.tp{font-size:13px;font-weight:800;flex-shrink:0;min-width:30px;text-align:right}
+
+/* THEORY */
+#theory{background:var(--bg)}
+.thscr{flex:1;overflow-y:auto;padding:14px 18px 24px;display:flex;flex-direction:column;gap:11px}
+.thscr::-webkit-scrollbar{display:none}
+.th-st{font-size:14px;font-weight:900;color:var(--p);padding:7px 0 4px;border-bottom:2px solid var(--pl)}
+.thc{background:var(--card);border:2px solid var(--brd);border-radius:14px;padding:13px 15px;display:flex;flex-direction:column;gap:6px}
+.thct{font-size:13px;font-weight:900;color:var(--txt)}
+.thr{font-size:12px;color:var(--txt);line-height:1.55}
+.thr b{color:#3C3489;font-weight:800;background:rgba(108,99,255,.09);padding:1px 4px;border-radius:3px}
+.ths{font-size:11px;color:#1D4ED8;font-weight:600;line-height:1.5}
+.ths b{font-weight:800}
+.the{font-size:12px;background:var(--gl);border-radius:8px;padding:7px 10px;line-height:1.5;border-left:3px solid var(--g)}
+.the b{color:var(--gd);font-weight:800}
+
+/* NAVBAR */
 .nav{background:#fff;border-top:2px solid var(--brd);display:flex;padding:8px 0 calc(8px + env(safe-area-inset-bottom));flex-shrink:0}
-.ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px;cursor:pointer;border:none;background:none;font-family:inherit;transition:transform .1s}
+.ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px;cursor:pointer;border:none;background:none;transition:transform .1s}
 .ni:active{transform:scale(.9)}
 .nico{font-size:22px;filter:grayscale(1);opacity:.35;transition:all .2s}
 .nilb{font-size:10px;font-weight:700;color:var(--mut);transition:color .2s}
-.ni.a .nico{filter:none;opacity:1}
-.ni.a .nilb{color:var(--p)}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:100;padding:18px}
-.modal.on{display:flex}
-.mcard{background:#fff;border-radius:20px;padding:26px 20px;text-align:center;width:100%;max-width:370px}
-.mico{font-size:58px;margin-bottom:13px;display:block}
-.mtit{font-size:23px;font-weight:900;margin-bottom:7px}
-.msub{font-size:14px;color:var(--mut);font-weight:600;margin-bottom:17px}
-.mxp{background:var(--yl);color:var(--yd);border-radius:13px;padding:13px;font-size:18px;font-weight:900;margin-bottom:17px}
-.mbtn{width:100%;padding:17px;border-radius:13px;border:none;font-size:17px;font-weight:800;cursor:pointer;background:var(--g);color:#fff;border-bottom:4px solid var(--gd);font-family:inherit}
+.ni.a .nico{filter:none;opacity:1}.ni.a .nilb{color:var(--p)}
+
+/* MODAL */
+.mo{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:100;padding:18px}
+.mo.on{display:flex}
+.mc{background:#fff;border-radius:20px;padding:26px 20px;text-align:center;width:100%;max-width:370px}
+.mci{font-size:58px;margin-bottom:13px;display:block}.mct{font-size:23px;font-weight:900;margin-bottom:7px}
+.mcs{font-size:14px;color:var(--mut);font-weight:600;margin-bottom:17px}
+.mcx{background:var(--yl);color:var(--yd);border-radius:13px;padding:13px;font-size:18px;font-weight:900;margin-bottom:17px}
+.mcb{width:100%;padding:17px;border-radius:13px;border:none;font-size:17px;font-weight:800;cursor:pointer;background:var(--g);color:#fff;border-bottom:4px solid var(--gd)}
+.ldng{display:flex;align-items:center;justify-content:center;height:200px;flex-direction:column;gap:12px}
+.ldng-i{font-size:36px;animation:bou 1s ease infinite alternate}
+.ldng-t{font-size:13px;color:var(--mut);font-weight:600}
 </style>
 </head>
 <body>
 
 <div class="scr" id="splash">
-  <div class="sico">&#9889;</div>
-  <div class="stit">Spark EGE</div>
-  <div class="ssub">&#1040;&#1085;&#1075;&#1083;&#1080;&#1081;&#1089;&#1082;&#1080;&#1081; &#1076;&#1083;&#1103; &#1045;&#1043;&#1069;</div>
-  <div class="sbar"><div class="sfil"></div></div>
+  <div class="sl">&#9889;</div>
+  <div class="st">Spark EGE</div>
+  <div class="ss">&#1040;&#1085;&#1075;&#1083;&#1080;&#1081;&#1089;&#1082;&#1080;&#1081; &#1076;&#1083;&#1103; &#1045;&#1043;&#1069;</div>
+  <div class="sb"><div class="sf"></div></div>
 </div>
 
 <div class="scr" id="onboard">
   <div class="ostep" id="s1">
-    <div class="ohero"><div class="ohi">&#128075;</div><div class="oht">&#1055;&#1088;&#1080;&#1074;&#1077;&#1090;! &#1071; Spark</div><div class="ohs">&#1058;&#1074;&#1086;&#1081; &#1088;&#1077;&#1087;&#1077;&#1090;&#1080;&#1090;&#1086;&#1088; &#1087;&#1086; &#1072;&#1085;&#1075;&#1083;&#1080;&#1081;&#1089;&#1082;&#1086;&#1084;&#1091; &#1076;&#1083;&#1103; &#1045;&#1043;&#1069;</div></div>
+    <div class="oh"><div class="ohi">&#128075;</div><div class="oht">&#1055;&#1088;&#1080;&#1074;&#1077;&#1090;! &#1071; Spark</div><div class="ohs">&#1058;&#1074;&#1086;&#1081; &#1088;&#1077;&#1087;&#1077;&#1090;&#1080;&#1090;&#1086;&#1088; &#1087;&#1086; &#1072;&#1085;&#1075;&#1083;&#1080;&#1081;&#1089;&#1082;&#1086;&#1084;&#1091; &#1076;&#1083;&#1103; &#1045;&#1043;&#1069;</div></div>
     <div class="olbl">&#1050;&#1072;&#1082; &#1090;&#1077;&#1073;&#1103; &#1079;&#1086;&#1074;&#1091;&#1090;?</div>
-    <input class="oinp" id="nameIn" type="text" placeholder="&#1042;&#1074;&#1077;&#1076;&#1080; &#1089;&#1074;&#1086;&#1105; &#1080;&#1084;&#1103;..." maxlength="20">
-    <button class="obtn" id="b1" disabled>&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1100; &#8594;</button>
+    <input class="oi" id="nameIn" type="text" placeholder="&#1042;&#1074;&#1077;&#1076;&#1080; &#1089;&#1074;&#1086;&#1105; &#1080;&#1084;&#1103;..." maxlength="20">
+    <button class="ob" id="b1" disabled>&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1100; &#8594;</button>
     <div class="dots"><div class="dot a"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
   </div>
   <div class="ostep" id="s2">
-    <div class="ohero"><div class="ohi">&#127912;</div><div class="oht">&#1042;&#1099;&#1073;&#1077;&#1088;&#1080; &#1072;&#1074;&#1072;&#1090;&#1072;&#1088;</div><div class="ohs">&#1054;&#1085; &#1073;&#1091;&#1076;&#1077;&#1090; &#1074; &#1090;&#1074;&#1086;&#1105;&#1084; &#1087;&#1088;&#1086;&#1092;&#1080;&#1083;&#1077;</div></div>
+    <div class="oh"><div class="ohi">&#127912;</div><div class="oht">&#1042;&#1099;&#1073;&#1077;&#1088;&#1080; &#1072;&#1074;&#1072;&#1090;&#1072;&#1088;</div><div class="ohs">&#1054;&#1085; &#1073;&#1091;&#1076;&#1077;&#1090; &#1074; &#1090;&#1074;&#1086;&#1105;&#1084; &#1087;&#1088;&#1086;&#1092;&#1080;&#1083;&#1077;</div></div>
     <div class="olbl">&#1058;&#1074;&#1086;&#1081; &#1072;&#1074;&#1072;&#1090;&#1072;&#1088;</div>
-    <div class="avgg" id="avG"></div>
-    <button class="obtn" id="b2" disabled>&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1100; &#8594;</button>
+    <div class="ag" id="avG"></div>
+    <button class="ob" id="b2" disabled>&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1100; &#8594;</button>
     <div class="dots"><div class="dot"></div><div class="dot a"></div><div class="dot"></div><div class="dot"></div></div>
   </div>
   <div class="ostep" id="s3">
-    <div class="ohero"><div class="ohi">&#128202;</div><div class="oht">&#1058;&#1074;&#1086;&#1081; &#1091;&#1088;&#1086;&#1074;&#1077;&#1085;&#1100;</div><div class="ohs">&#1055;&#1086;&#1076;&#1073;&#1077;&#1088;&#1105;&#1084; &#1085;&#1091;&#1078;&#1085;&#1091;&#1102; &#1089;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;</div></div>
+    <div class="oh"><div class="ohi">&#128202;</div><div class="oht">&#1058;&#1074;&#1086;&#1081; &#1091;&#1088;&#1086;&#1074;&#1077;&#1085;&#1100;</div><div class="ohs">&#1055;&#1086;&#1076;&#1073;&#1077;&#1088;&#1105;&#1084; &#1085;&#1091;&#1078;&#1085;&#1091;&#1102; &#1089;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;</div></div>
     <div class="olbl">&#1059;&#1088;&#1086;&#1074;&#1077;&#1085;&#1100;</div>
-    <div class="lvgg">
-      <button class="lvb" data-lv="A2"><span class="lvico">&#127807;</span><div><span class="lvt">A2 &#8212; &#1053;&#1072;&#1095;&#1080;&#1085;&#1072;&#1102;&#1097;&#1080;&#1081;</span><span class="lvs">&#1047;&#1085;&#1072;&#1102; &#1086;&#1089;&#1085;&#1086;&#1074;&#1099; &#1075;&#1088;&#1072;&#1084;&#1084;&#1072;&#1090;&#1080;&#1082;&#1080;</span></div></button>
-      <button class="lvb" data-lv="B1"><span class="lvico">&#128218;</span><div><span class="lvt">B1 &#8212; &#1057;&#1088;&#1077;&#1076;&#1085;&#1080;&#1081;</span><span class="lvs">&#1052;&#1086;&#1075;&#1091; &#1086;&#1073;&#1097;&#1072;&#1090;&#1100;&#1089;&#1103; &#1085;&#1072; &#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1077; &#1090;&#1077;&#1084;&#1099;</span></div></button>
-      <button class="lvb" data-lv="B2"><span class="lvico">&#128640;</span><div><span class="lvt">B2 &#8212; &#1042;&#1099;&#1096;&#1077; &#1089;&#1088;&#1077;&#1076;&#1085;&#1077;&#1075;&#1086;</span><span class="lvs">&#1059;&#1074;&#1077;&#1088;&#1077;&#1085;&#1085;&#1086; &#1095;&#1080;&#1090;&#1072;&#1102; &#1090;&#1077;&#1082;&#1089;&#1090;&#1099;</span></div></button>
+    <div class="lvg">
+      <button class="lb" data-lv="A2"><span class="li">&#127807;</span><div><span class="lt">A2 &#8212; &#1053;&#1072;&#1095;&#1080;&#1085;&#1072;&#1102;&#1097;&#1080;&#1081;</span><span class="ls2">&#1047;&#1085;&#1072;&#1102; &#1086;&#1089;&#1085;&#1086;&#1074;&#1099; &#1075;&#1088;&#1072;&#1084;&#1084;&#1072;&#1090;&#1080;&#1082;&#1080;</span></div></button>
+      <button class="lb" data-lv="B1"><span class="li">&#128218;</span><div><span class="lt">B1 &#8212; &#1057;&#1088;&#1077;&#1076;&#1085;&#1080;&#1081;</span><span class="ls2">&#1052;&#1086;&#1075;&#1091; &#1086;&#1073;&#1097;&#1072;&#1090;&#1100;&#1089;&#1103; &#1085;&#1072; &#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1077; &#1090;&#1077;&#1084;&#1099;</span></div></button>
+      <button class="lb" data-lv="B2"><span class="li">&#128640;</span><div><span class="lt">B2 &#8212; &#1042;&#1099;&#1096;&#1077; &#1089;&#1088;&#1077;&#1076;&#1085;&#1077;&#1075;&#1086;</span><span class="ls2">&#1059;&#1074;&#1077;&#1088;&#1077;&#1085;&#1085;&#1086; &#1095;&#1080;&#1090;&#1072;&#1102; &#1090;&#1077;&#1082;&#1089;&#1090;&#1099;</span></div></button>
     </div>
-    <button class="obtn" id="b3" disabled>&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1100; &#8594;</button>
+    <button class="ob" id="b3" disabled>&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1100; &#8594;</button>
     <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot a"></div><div class="dot"></div></div>
   </div>
   <div class="ostep" id="s4">
-    <div class="ohero"><div class="ohi">&#127919;</div><div class="oht">&#1044;&#1085;&#1077;&#1074;&#1085;&#1072;&#1103; &#1094;&#1077;&#1083;&#1100;</div><div class="ohs">&#1057;&#1082;&#1086;&#1083;&#1100;&#1082;&#1086; &#1074;&#1088;&#1077;&#1084;&#1077;&#1085;&#1080; &#1082;&#1072;&#1078;&#1076;&#1099;&#1081; &#1076;&#1077;&#1085;&#1100;?</div></div>
+    <div class="oh"><div class="ohi">&#127919;</div><div class="oht">&#1044;&#1085;&#1077;&#1074;&#1085;&#1072;&#1103; &#1094;&#1077;&#1083;&#1100;</div><div class="ohs">&#1057;&#1082;&#1086;&#1083;&#1100;&#1082;&#1086; &#1074;&#1088;&#1077;&#1084;&#1077;&#1085;&#1080; &#1082;&#1072;&#1078;&#1076;&#1099;&#1081; &#1076;&#1077;&#1085;&#1100;?</div></div>
     <div class="olbl">&#1062;&#1077;&#1083;&#1100;</div>
     <div class="gg">
-      <button class="gb" data-xp="20"><span class="gico">&#128522;</span><span class="gtit">&#1056;&#1072;&#1089;&#1089;&#1083;&#1072;&#1073;&#1083;&#1077;&#1085;&#1085;&#1086;</span><span class="gxp">10 &#1084;&#1080;&#1085; &#183; 20 XP</span></button>
-      <button class="gb" data-xp="30"><span class="gico">&#128218;</span><span class="gtit">&#1056;&#1077;&#1075;&#1091;&#1083;&#1103;&#1088;&#1085;&#1086;</span><span class="gxp">15 &#1084;&#1080;&#1085; &#183; 30 XP</span></button>
-      <button class="gb" data-xp="50"><span class="gico">&#128170;</span><span class="gtit">&#1057;&#1077;&#1088;&#1100;&#1105;&#1079;&#1085;&#1086;</span><span class="gxp">20 &#1084;&#1080;&#1085; &#183; 50 XP</span></button>
-      <button class="gb" data-xp="80"><span class="gico">&#128293;</span><span class="gtit">&#1048;&#1085;&#1090;&#1077;&#1085;&#1089;&#1080;&#1074;&#1085;&#1086;</span><span class="gxp">30 &#1084;&#1080;&#1085; &#183; 80 XP</span></button>
+      <button class="gb" data-xp="20"><span class="gi">&#128522;</span><span class="gt">&#1056;&#1072;&#1089;&#1089;&#1083;&#1072;&#1073;&#1083;&#1077;&#1085;&#1085;&#1086;</span><span class="gx">10 &#1084;&#1080;&#1085; &#183; 20 XP</span></button>
+      <button class="gb" data-xp="30"><span class="gi">&#128218;</span><span class="gt">&#1056;&#1077;&#1075;&#1091;&#1083;&#1103;&#1088;&#1085;&#1086;</span><span class="gx">15 &#1084;&#1080;&#1085; &#183; 30 XP</span></button>
+      <button class="gb" data-xp="50"><span class="gi">&#128170;</span><span class="gt">&#1057;&#1077;&#1088;&#1100;&#1105;&#1079;&#1085;&#1086;</span><span class="gx">20 &#1084;&#1080;&#1085; &#183; 50 XP</span></button>
+      <button class="gb" data-xp="80"><span class="gi">&#128293;</span><span class="gt">&#1048;&#1085;&#1090;&#1077;&#1085;&#1089;&#1080;&#1074;&#1085;&#1086;</span><span class="gx">30 &#1084;&#1080;&#1085; &#183; 80 XP</span></button>
     </div>
-    <button class="obtn" id="b4" disabled>&#1053;&#1072;&#1095;&#1072;&#1090;&#1100; &#1086;&#1073;&#1091;&#1095;&#1077;&#1085;&#1080;&#1077;! &#9889;</button>
+    <button class="ob" id="b4" disabled>&#1053;&#1072;&#1095;&#1072;&#1090;&#1100; &#1086;&#1073;&#1091;&#1095;&#1077;&#1085;&#1080;&#1077;! &#9889;</button>
     <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot a"></div></div>
   </div>
 </div>
@@ -203,248 +230,293 @@ body{display:flex;flex-direction:column;max-width:430px;margin:0 auto}
   <div class="wav" id="wAv">&#128522;</div>
   <div class="whi">&#1044;&#1086;&#1073;&#1088;&#1086; &#1087;&#1086;&#1078;&#1072;&#1083;&#1086;&#1074;&#1072;&#1090;&#1100;,</div>
   <div class="wnm" id="wNm">&#1048;&#1084;&#1103;</div>
-  <div class="wsub">&#1042;&#1089;&#1105; &#1075;&#1086;&#1090;&#1086;&#1074;&#1086;! &#1058;&#1074;&#1086;&#1081; &#1088;&#1077;&#1087;&#1077;&#1090;&#1080;&#1090;&#1086;&#1088; &#1078;&#1076;&#1105;&#1090; &#1090;&#1077;&#1073;&#1103;. &#1053;&#1072;&#1095;&#1085;&#1077;&#1084; &#1087;&#1088;&#1103;&#1084;&#1086; &#1089;&#1077;&#1081;&#1095;&#1072;&#1089;?</div>
-  <button class="wbtn" id="wBtn">&#1055;&#1086;&#1077;&#1093;&#1072;&#1083;&#1080;! &#128640;</button>
+  <div class="ws">&#1042;&#1089;&#1105; &#1075;&#1086;&#1090;&#1086;&#1074;&#1086;! &#1058;&#1074;&#1086;&#1081; &#1088;&#1077;&#1087;&#1077;&#1090;&#1080;&#1090;&#1086;&#1088; &#1078;&#1076;&#1105;&#1090; &#1090;&#1077;&#1073;&#1103;. &#1053;&#1072;&#1095;&#1085;&#1077;&#1084; &#1087;&#1088;&#1103;&#1084;&#1086; &#1089;&#1077;&#1081;&#1095;&#1072;&#1089;?</div>
+  <button class="wb" id="wBtn">&#1055;&#1086;&#1077;&#1093;&#1072;&#1083;&#1080;! &#128640;</button>
 </div>
 
 <div class="scr" id="home">
   <div class="htop">
-    <div class="huser"><div class="hav" id="hAv">&#128522;</div><div><div class="hgr" id="hGr">&#1055;&#1088;&#1080;&#1074;&#1077;&#1090;!</div><div class="hnm" id="hNm">...</div></div></div>
-    <div class="hstats">
+    <div class="hu"><div class="hav" id="hAv">&#128522;</div><div><div class="hg" id="hGr">&#1055;&#1088;&#1080;&#1074;&#1077;&#1090;!</div><div class="hn" id="hNm">...</div></div></div>
+    <div class="hst">
       <div class="pill">&#128293; <span id="hStr">0</span></div>
       <div class="pill">&#11088; <span id="hXp">0</span> XP</div>
       <div class="pill">&#127942; <span id="hLv">B1</span></div>
     </div>
   </div>
-  <div class="hscr">
-    <div class="dayc">
-      <div class="dayt">&#1044;&#1085;&#1077;&#1074;&#1085;&#1072;&#1103; &#1094;&#1077;&#1083;&#1100; &#8212; <span id="gXp">50</span> XP</div>
-      <div class="xpw"><div class="xpb" id="dBar" style="width:0%"></div></div>
-      <div class="xpl"><span id="tXp">0</span> / <span id="gXp2">50</span> XP</div>
+  <div class="hs">
+    <div class="dc">
+      <div class="dt">&#1044;&#1085;&#1077;&#1074;&#1085;&#1072;&#1103; &#1094;&#1077;&#1083;&#1100; &#8212; <span id="gXp">50</span> XP</div>
+      <div class="xw"><div class="xb" id="dBar" style="width:0%"></div></div>
+      <div class="xl"><span id="tXp">0</span> / <span id="gXp2">50</span> XP</div>
     </div>
     <button class="lbtn" id="startBtn">&#9889; &#1053;&#1072;&#1095;&#1072;&#1090;&#1100; &#1091;&#1088;&#1086;&#1082;</button>
     <div class="sgt">&#1056;&#1072;&#1079;&#1076;&#1077;&#1083;&#1099; &#1045;&#1043;&#1069;</div>
-    <div class="sgrid">
-      <button class="sbtn gr" data-s="gr"><span class="sico">&#9881;&#65039;</span><span class="snm">&#1043;&#1088;&#1072;&#1084;&#1084;&#1072;&#1090;&#1080;&#1082;&#1072;</span><span class="sct">26&#8211;31</span></button>
-      <button class="sbtn vc" data-s="vc"><span class="sico">&#128218;</span><span class="snm">&#1051;&#1077;&#1082;&#1089;&#1080;&#1082;&#1072;</span><span class="sct">32&#8211;38</span></button>
-      <button class="sbtn rd" data-s="rd"><span class="sico">&#128214;</span><span class="snm">&#1063;&#1090;&#1077;&#1085;&#1080;&#1077;</span><span class="sct">12&#8211;18</span></button>
-      <button class="sbtn wr" data-s="wr"><span class="sico">&#9997;&#65039;</span><span class="snm">&#1055;&#1080;&#1089;&#1100;&#1084;&#1086;</span><span class="sct">39&#8211;40</span></button>
-      <button class="sbtn ls" data-s="ls"><span class="sico">&#127911;</span><span class="snm">&#1040;&#1091;&#1076;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;</span><span class="sct">&#1047;&#1072;&#1076;. 1</span></button>
-      <button class="sbtn sp" data-s="sp"><span class="sico">&#128483;&#65039;</span><span class="snm">&#1043;&#1086;&#1074;&#1086;&#1088;&#1077;&#1085;&#1080;&#1077;</span><span class="sct">&#1047;&#1072;&#1076;. 3</span></button>
+    <div class="sg">
+      <button class="sb2 gr" data-sec="grammar"><span class="si">&#9881;&#65039;</span><span class="sn">&#1043;&#1088;&#1072;&#1084;&#1084;&#1072;&#1090;&#1080;&#1082;&#1072;</span><span class="sc">&#1047;&#1072;&#1076;. 26&#8211;31</span></button>
+      <button class="sb2 vc" data-sec="word_formation"><span class="si">&#128295;</span><span class="sn">&#1057;&#1083;&#1086;&#1074;&#1086;&#1086;&#1073;&#1088;&#1072;&#1079;.</span><span class="sc">&#1047;&#1072;&#1076;. 32&#8211;38</span></button>
+      <button class="sb2 rd" data-sec="reading"><span class="si">&#128214;</span><span class="sn">&#1063;&#1090;&#1077;&#1085;&#1080;&#1077;</span><span class="sc">&#1047;&#1072;&#1076;. 12&#8211;18</span></button>
+      <button class="sb2 wr" data-sec="writing"><span class="si">&#9997;&#65039;</span><span class="sn">&#1055;&#1080;&#1089;&#1100;&#1084;&#1086;</span><span class="sc">&#1047;&#1072;&#1076;. 39&#8211;40</span></button>
+      <button class="sb2 ls" data-sec="listening"><span class="si">&#127911;</span><span class="sn">&#1040;&#1091;&#1076;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;</span><span class="sc">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077; 1</span></button>
+      <button class="sb2 sp" data-sec="speaking"><span class="si">&#128483;&#65039;</span><span class="sn">&#1043;&#1086;&#1074;&#1086;&#1088;&#1077;&#1085;&#1080;&#1077;</span><span class="sc">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077; 3</span></button>
     </div>
   </div>
   <nav class="nav">
     <button class="ni a" id="nH"><span class="nico">&#127968;</span><span class="nilb">&#1043;&#1083;&#1072;&#1074;&#1085;&#1072;&#1103;</span></button>
     <button class="ni" id="nL"><span class="nico">&#9889;</span><span class="nilb">&#1059;&#1088;&#1086;&#1082;</span></button>
     <button class="ni" id="nP"><span class="nico">&#128202;</span><span class="nilb">&#1055;&#1088;&#1086;&#1075;&#1088;&#1077;&#1089;&#1089;</span></button>
-    <button class="ni" id="nPr"><span class="nico">&#128100;</span><span class="nilb">&#1055;&#1088;&#1086;&#1092;&#1080;&#1083;&#1100;</span></button>
+    <button class="ni" id="nTh"><span class="nico">&#128218;</span><span class="nilb">&#1058;&#1077;&#1086;&#1088;&#1080;&#1103;</span></button>
   </nav>
 </div>
 
 <div class="scr" id="lesson">
-  <div class="lprog">
-    <button id="lX" style="width:38px;height:38px;border-radius:11px;background:#F7F7F7;border:none;font-size:15px;cursor:pointer;flex-shrink:0">&#10005;</button>
-    <div class="pbar"><div class="pfil" id="lPf" style="width:0%"></div></div>
-    <div class="hts"><span class="ht" id="h1">&#10084;&#65039;</span><span class="ht" id="h2">&#10084;&#65039;</span><span class="ht" id="h3">&#10084;&#65039;</span></div>
-    <div class="xpbg">+10 XP</div>
+  <div class="lp">
+    <button id="lX" style="width:38px;height:38px;border-radius:11px;background:var(--bg);border:none;font-size:15px;cursor:pointer;flex-shrink:0">&#10005;</button>
+    <div class="pb"><div class="pf" id="lPf" style="width:0%"></div></div>
+    <div class="hts"><span class="ht2" id="h1">&#10084;&#65039;</span><span class="ht2" id="h2">&#10084;&#65039;</span><span class="ht2" id="h3">&#10084;&#65039;</span></div>
+    <div class="xbg">+10 XP</div>
   </div>
-  <div class="lbody" id="lBd"></div>
+  <div class="lb3" id="lBd"></div>
   <div id="rPn"></div>
 </div>
 
-<div class="modal" id="modal">
-  <div class="mcard">
-    <span class="mico">&#127881;</span>
-    <div class="mtit">&#1059;&#1088;&#1086;&#1082; &#1087;&#1088;&#1086;&#1081;&#1076;&#1077;&#1085;!</div>
-    <div class="msub" id="mSb">&#1054;&#1090;&#1083;&#1080;&#1095;&#1085;&#1072;&#1103; &#1088;&#1072;&#1073;&#1086;&#1090;&#1072;!</div>
-    <div class="mxp">+30 XP &#1079;&#1072;&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1085;&#1086;</div>
-    <button class="mbtn" id="mBtn">&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1100;</button>
+<div class="scr" id="progress">
+  <div class="hdr"><button class="hb" id="pBk">&#8592;</button><div class="htt">&#1052;&#1086;&#1081; &#1087;&#1088;&#1086;&#1075;&#1088;&#1077;&#1089;&#1089;</div></div>
+  <div class="ps">
+    <div class="ph"><div class="plv" id="pLv">B1</div><div class="pll">&#1059;&#1088;&#1086;&#1074;&#1077;&#1085;&#1100;</div><div class="px">&#11088; <span id="pXp">0</span> XP</div></div>
+    <div class="sg2">
+      <div class="sk"><div class="ski">&#128221;</div><span class="skv" id="pLs">0</span><span class="skl">&#1059;&#1088;&#1086;&#1082;&#1086;&#1074;</span></div>
+      <div class="sk"><div class="ski">&#9989;</div><span class="skv" id="pAc">0%</span><span class="skl">&#1058;&#1086;&#1095;&#1085;&#1086;&#1089;&#1090;&#1100;</span></div>
+      <div class="sk"><div class="ski">&#128293;</div><span class="skv" id="pSt">0</span><span class="skl">&#1044;&#1085;&#1077;&#1081; &#1087;&#1086;&#1076;&#1088;&#1103;&#1076;</span></div>
+      <div class="sk"><div class="ski">&#128214;</div><span class="skv">0</span><span class="skl">&#1057;&#1083;&#1086;&#1074;</span></div>
+    </div>
+    <div class="sgt">&#1055;&#1086; &#1088;&#1072;&#1079;&#1076;&#1077;&#1083;&#1072;&#1084;</div>
+    <div class="tr3"><span class="ti">&#9881;&#65039;</span><div style="flex:1"><div class="tn">&#1043;&#1088;&#1072;&#1084;&#1084;&#1072;&#1090;&#1080;&#1082;&#1072;</div><div class="tbw"><div class="tb" id="bGr" style="width:0%;background:#C4B5FD"></div></div></div><span class="tp" id="pGr" style="color:#7C3AED">0%</span></div>
+    <div class="tr3"><span class="ti">&#128295;</span><div style="flex:1"><div class="tn">&#1057;&#1083;&#1086;&#1074;&#1086;&#1086;&#1073;&#1088;&#1072;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;</div><div class="tbw"><div class="tb" id="bWf" style="width:0%;background:#86EFAC"></div></div></div><span class="tp" id="pWf" style="color:#16A34A">0%</span></div>
+    <div class="tr3"><span class="ti">&#128214;</span><div style="flex:1"><div class="tn">&#1063;&#1090;&#1077;&#1085;&#1080;&#1077;</div><div class="tbw"><div class="tb" id="bRd" style="width:0%;background:#93C5FD"></div></div></div><span class="tp" id="pRd" style="color:#1D4ED8">0%</span></div>
+    <div class="tr3"><span class="ti">&#127911;</span><div style="flex:1"><div class="tn">&#1040;&#1091;&#1076;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;</div><div class="tbw"><div class="tb" id="bLs" style="width:0%;background:#F9A8D4"></div></div></div><span class="tp" id="pLs2" style="color:#BE185D">0%</span></div>
+    <div class="tr3"><span class="ti">&#9997;&#65039;</span><div style="flex:1"><div class="tn">&#1055;&#1080;&#1089;&#1100;&#1084;&#1086;</div><div class="tbw"><div class="tb" id="bWr" style="width:0%;background:#FCA5A5"></div></div></div><span class="tp" id="pWr" style="color:#DC2626">0%</span></div>
+    <div class="tr3"><span class="ti">&#128483;&#65039;</span><div style="flex:1"><div class="tn">&#1043;&#1086;&#1074;&#1086;&#1088;&#1077;&#1085;&#1080;&#1077;</div><div class="tbw"><div class="tb" id="bSp" style="width:0%;background:#A5F3FC"></div></div></div><span class="tp" id="pSp" style="color:#0E7490">0%</span></div>
+  </div>
+  <nav class="nav">
+    <button class="ni" id="pnH"><span class="nico">&#127968;</span><span class="nilb">&#1043;&#1083;&#1072;&#1074;&#1085;&#1072;&#1103;</span></button>
+    <button class="ni" id="pnL"><span class="nico">&#9889;</span><span class="nilb">&#1059;&#1088;&#1086;&#1082;</span></button>
+    <button class="ni a" id="pnP"><span class="nico">&#128202;</span><span class="nilb">&#1055;&#1088;&#1086;&#1075;&#1088;&#1077;&#1089;&#1089;</span></button>
+    <button class="ni" id="pnTh"><span class="nico">&#128218;</span><span class="nilb">&#1058;&#1077;&#1086;&#1088;&#1080;&#1103;</span></button>
+  </nav>
+</div>
+
+<div class="scr" id="theory">
+  <div class="hdr"><button class="hb" id="thBk">&#8592;</button><div class="htt">&#1057;&#1087;&#1088;&#1072;&#1074;&#1086;&#1095;&#1085;&#1080;&#1082;</div></div>
+  <div class="thscr">
+    <div class="th-st">&#9881;&#65039; &#1043;&#1088;&#1072;&#1084;&#1084;&#1072;&#1090;&#1080;&#1082;&#1072; &#8212; &#1042;&#1088;&#1077;&#1084;&#1077;&#1085;&#1072;</div>
+    <div class="thc"><div class="thct">&#128197; Present Simple</div><div class="thr">&#1060;&#1086;&#1088;&#1084;&#1072;: <b>V / V+s (he/she/it)</b></div><div class="ths">&#128204; &#1057;&#1080;&#1075;&#1085;&#1072;&#1083;&#1099;: <b>every day, always, usually, often, never, sometimes</b></div><div class="the">She <b>reads</b> books every evening. &#8212; &#1054;&#1085;&#1072; &#1095;&#1080;&#1090;&#1072;&#1077;&#1090; &#1082;&#1072;&#1078;&#1076;&#1099;&#1081; &#1074;&#1077;&#1095;&#1077;&#1088;.</div></div>
+    <div class="thc"><div class="thct">&#128260; Present Continuous</div><div class="thr">&#1060;&#1086;&#1088;&#1084;&#1072;: <b>am/is/are + V-ing</b></div><div class="ths">&#128204; &#1057;&#1080;&#1075;&#1085;&#1072;&#1083;&#1099;: <b>now, at the moment, look!, right now, currently</b></div><div class="the">They <b>are playing</b> now. &#8212; &#1054;&#1085;&#1080; &#1089;&#1077;&#1081;&#1095;&#1072;&#1089; &#1080;&#1075;&#1088;&#1072;&#1102;&#1090;.</div></div>
+    <div class="thc"><div class="thct">&#9989; Present Perfect</div><div class="thr">&#1060;&#1086;&#1088;&#1084;&#1072;: <b>have/has + V3</b></div><div class="ths">&#128204; &#1057;&#1080;&#1075;&#1085;&#1072;&#1083;&#1099;: <b>already, yet, just, ever, never, for, since, recently</b></div><div class="the">She <b>has already done</b> it. &#8212; &#1054;&#1085;&#1072; &#1091;&#1078;&#1077; &#1089;&#1076;&#1077;&#1083;&#1072;&#1083;&#1072;.</div></div>
+    <div class="thc"><div class="thct">&#128336; Past Simple</div><div class="thr">&#1060;&#1086;&#1088;&#1084;&#1072;: <b>V2 (ed / &#1085;&#1077;&#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1099;&#1077;)</b></div><div class="ths">&#128204; &#1057;&#1080;&#1075;&#1085;&#1072;&#1083;&#1099;: <b>yesterday, last week, ago, in 2020, when</b></div><div class="the">He <b>went</b> to school yesterday. &#8212; &#1054;&#1085; &#1087;&#1086;&#1096;&#1105;&#1083; &#1074;&#1095;&#1077;&#1088;&#1072;.</div></div>
+    <div class="thc"><div class="thct">&#9203; Past Perfect</div><div class="thr">&#1060;&#1086;&#1088;&#1084;&#1072;: <b>had + V3</b></div><div class="ths">&#128204; &#1057;&#1080;&#1075;&#1085;&#1072;&#1083;&#1099;: <b>by the time, before, after, already (&#1076;&#1074;&#1072; &#1087;&#1088;&#1086;&#1096;&#1077;&#1076;&#1096;&#1080;&#1093;)</b></div><div class="the">By the time we arrived, she <b>had left</b>. &#8212; &#1054;&#1085;&#1072; &#1091;&#1096;&#1083;&#1072; &#1076;&#1086; &#1085;&#1072;&#1096;&#1077;&#1075;&#1086; &#1087;&#1088;&#1080;&#1093;&#1086;&#1076;&#1072;.</div></div>
+    <div class="thc"><div class="thct">&#128640; Future Simple</div><div class="thr">&#1060;&#1086;&#1088;&#1084;&#1072;: <b>will + V</b></div><div class="ths">&#128204; &#1057;&#1080;&#1075;&#1085;&#1072;&#1083;&#1099;: <b>tomorrow, next week, soon, I think, probably</b></div><div class="the">It <b>will rain</b> tomorrow. &#8212; &#1047;&#1072;&#1074;&#1090;&#1088;&#1072; &#1073;&#1091;&#1076;&#1077;&#1090; &#1076;&#1086;&#1078;&#1076;&#1100;.</div></div>
+    <div class="thc"><div class="thct">&#128274; Passive Voice &#8212; &#1089;&#1090;&#1088;&#1072;&#1076;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1081; &#1079;&#1072;&#1083;&#1086;&#1075;</div><div class="thr">&#1060;&#1086;&#1088;&#1084;&#1072;: <b>am/is/are/was/were + V3</b></div><div class="thr">&#1044;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1077; &#1085;&#1072;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1086; &#1053;&#1040; &#1087;&#1086;&#1076;&#1083;&#1077;&#1078;&#1072;&#1097;&#1077;&#1077;, &#1072; &#1085;&#1077; &#1080;&#1089;&#1093;&#1086;&#1076;&#1080;&#1090; &#1086;&#1090; &#1085;&#1077;&#1075;&#1086;.</div><div class="the">The book <b>was written</b> in 1984. &#8212; &#1050;&#1085;&#1080;&#1075;&#1072; &#1073;&#1099;&#1083;&#1072; &#1085;&#1072;&#1087;&#1080;&#1089;&#1072;&#1085;&#1072; &#1074; 1984.</div></div>
+    <div class="thc"><div class="thct">&#127917; Conditionals &#8212; &#1091;&#1089;&#1083;&#1086;&#1074;&#1085;&#1099;&#1077;</div><div class="thr"><b>Type 1</b> (&#1088;&#1077;&#1072;&#1083;&#1100;&#1085;&#1086;&#1077;): If + Present Simple &#8594; <b>will</b> + V</div><div class="thr"><b>Type 2</b> (&#1085;&#1077;&#1088;&#1077;&#1072;&#1083;&#1100;&#1085;&#1086;&#1077;): If + <b>Past Simple</b> &#8594; <b>would</b> + V</div><div class="thr"><b>Type 3</b> (&#1087;&#1088;&#1086;&#1096;&#1083;&#1086;&#1077;): If + <b>Past Perfect</b> &#8594; <b>would have</b> + V3</div><div class="the">If I <b>knew</b> her, I <b>would call</b>. (Type 2)</div></div>
+    <div class="thc"><div class="thct">&#128172; Reported Speech &#8212; &#1082;&#1086;&#1089;&#1074;&#1077;&#1085;&#1085;&#1072;&#1103; &#1088;&#1077;&#1095;&#1100;</div><div class="thr">&#1057;&#1076;&#1074;&#1080;&#1075; &#1074;&#1088;&#1077;&#1084;&#1077;&#1085;&#1080;: <b>will&#8594;would, can&#8594;could, is&#8594;was</b></div><div class="the">She said she <b>was going</b> there. (is &#8594; was)</div></div>
+    <div class="thc"><div class="thct">&#128279; Gerund vs Infinitive</div><div class="thr">&#1043;&#1077;&#1088;&#1091;&#1085;&#1076;&#1080;&#1081; (+ing): <b>enjoy, avoid, suggest, mind, finish, keep</b></div><div class="thr">&#1048;&#1085;&#1092;&#1080;&#1085;&#1080;&#1090;&#1080;&#1074; (to+V): <b>want, decide, hope, plan, agree, refuse</b></div><div class="the">He <b>suggested going</b> / She <b>decided to leave</b>.</div></div>
+    <div class="th-st">&#128295; &#1057;&#1083;&#1086;&#1074;&#1086;&#1086;&#1073;&#1088;&#1072;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;</div>
+    <div class="thc"><div class="thct">&#10133; &#1055;&#1088;&#1080;&#1089;&#1090;&#1072;&#1074;&#1082;&#1080; &#1086;&#1090;&#1088;&#1080;&#1094;&#1072;&#1085;&#1080;&#1103;</div><div class="thr"><b>un-</b>: happy&#8594;<b>un</b>happy, known&#8594;<b>un</b>known, fair&#8594;<b>un</b>fair</div><div class="thr"><b>im-</b> &#1087;&#1077;&#1088;&#1077;&#1076; p/b/m: possible&#8594;<b>im</b>possible, patient&#8594;<b>im</b>patient</div><div class="thr"><b>in-</b>: correct&#8594;<b>in</b>correct, formal&#8594;<b>in</b>formal, active&#8594;<b>in</b>active</div><div class="thr"><b>dis-</b>: agree&#8594;<b>dis</b>agree, honest&#8594;<b>dis</b>honest</div></div>
+    <div class="thc"><div class="thct">&#128221; &#1057;&#1091;&#1092;&#1092;&#1080;&#1082;&#1089;&#1099; &#1089;&#1091;&#1097;&#1077;&#1089;&#1090;&#1074;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1093;</div><div class="thr"><b>-ment</b>: achieve&#8594;achieve<b>ment</b>, develop&#8594;develop<b>ment</b></div><div class="thr"><b>-tion/-sion</b>: educate&#8594;educa<b>tion</b>, decide&#8594;deci<b>sion</b></div><div class="thr"><b>-ness</b>: kind&#8594;kind<b>ness</b>, happy&#8594;happi<b>ness</b></div><div class="thr"><b>-ity</b>: real&#8594;real<b>ity</b>, creative&#8594;creativ<b>ity</b></div><div class="thr"><b>-er/-or</b>: teach&#8594;teach<b>er</b>, invent&#8594;invent<b>or</b></div></div>
+    <div class="thc"><div class="thct">&#11088; &#1057;&#1091;&#1092;&#1092;&#1080;&#1082;&#1089;&#1099; &#1087;&#1088;&#1080;&#1083;&#1072;&#1075;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1093;</div><div class="thr"><b>-ful</b>: use&#8594;use<b>ful</b>, help&#8594;help<b>ful</b> (&#1089; &#1082;&#1072;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086;&#1084;)</div><div class="thr"><b>-less</b>: use&#8594;use<b>less</b>, care&#8594;care<b>less</b> (&#1073;&#1077;&#1079; &#1082;&#1072;&#1095;&#1077;&#1089;&#1090;&#1074;&#1072;)</div><div class="thr"><b>-ic/-ical</b>: science&#8594;scientif<b>ic</b>, hero&#8594;hero<b>ic</b></div><div class="thr"><b>-al</b>: nature&#8594;natur<b>al</b>, tradition&#8594;tradition<b>al</b></div><div class="thr"><b>-ous</b>: fame&#8594;fam<b>ous</b>, danger&#8594;danger<b>ous</b></div></div>
+    <div class="thc"><div class="thct">&#128176; &#1053;&#1072;&#1088;&#1077;&#1095;&#1080;&#1103; (-ly)</div><div class="thr"><b>-ly</b>: quick&#8594;quick<b>ly</b>, careful&#8594;careful<b>ly</b></div><div class="thr">&#1045;&#1089;&#1083;&#1080; &#1085;&#1072; -y: y&#8594;i+ly: happy&#8594;happi<b>ly</b>, easy&#8594;easi<b>ly</b></div></div>
+    <div class="thc"><div class="thct">&#128270; &#1040;&#1083;&#1075;&#1086;&#1088;&#1080;&#1090;&#1084; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;</div><div class="thr">1. &#1054;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080; <b>&#1095;&#1072;&#1089;&#1090;&#1100; &#1088;&#1077;&#1095;&#1080;</b> &#1087;&#1086; &#1086;&#1082;&#1088;&#1091;&#1078;&#1077;&#1085;&#1080;&#1102;</div><div class="thr">2. &#1054;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080; <b>&#1095;&#1080;&#1089;&#1083;&#1086;</b> &#1077;&#1089;&#1083;&#1080; &#1089;&#1091;&#1097;&#1077;&#1089;&#1090;&#1074;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1077;</div><div class="thr">3. &#1053;&#1091;&#1078;&#1085;&#1086; &#1083;&#1080; <b>&#1086;&#1090;&#1088;&#1080;&#1094;&#1072;&#1085;&#1080;&#1077;</b>?</div><div class="thr">4. &#1055;&#1088;&#1080;&#1084;&#1077;&#1085;&#1080; <b>&#1085;&#1091;&#1078;&#1085;&#1099;&#1081; &#1089;&#1091;&#1092;&#1092;&#1080;&#1082;&#1089;/&#1087;&#1088;&#1080;&#1089;&#1090;&#1072;&#1074;&#1082;&#1091;</b></div></div>
+  </div>
+  <nav class="nav">
+    <button class="ni" id="thnH"><span class="nico">&#127968;</span><span class="nilb">&#1043;&#1083;&#1072;&#1074;&#1085;&#1072;&#1103;</span></button>
+    <button class="ni" id="thnL"><span class="nico">&#9889;</span><span class="nilb">&#1059;&#1088;&#1086;&#1082;</span></button>
+    <button class="ni" id="thnP"><span class="nico">&#128202;</span><span class="nilb">&#1055;&#1088;&#1086;&#1075;&#1088;&#1077;&#1089;&#1089;</span></button>
+    <button class="ni a" id="thnTh"><span class="nico">&#128218;</span><span class="nilb">&#1058;&#1077;&#1086;&#1088;&#1080;&#1103;</span></button>
+  </nav>
+</div>
+
+<div class="mo" id="modal">
+  <div class="mc">
+    <span class="mci">&#127881;</span>
+    <div class="mct">&#1059;&#1088;&#1086;&#1082; &#1087;&#1088;&#1086;&#1081;&#1076;&#1077;&#1085;!</div>
+    <div class="mcs" id="mSb">&#1054;&#1090;&#1083;&#1080;&#1095;&#1085;&#1072;&#1103; &#1088;&#1072;&#1073;&#1086;&#1090;&#1072;!</div>
+    <div class="mcx" id="mcx">+40 XP &#1079;&#1072;&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1085;&#1086;</div>
+    <button class="mcb" id="mBtn">&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1100;</button>
   </div>
 </div>
 
 <script>
-var AVTS=['&#128522;','&#129418;','&#128060;','&#129409;','&#128056;','&#127775;','&#127919;','&#128640;','&#127752;','&#128142;','&#129419;','&#128044;'];
-var API_URL='http://localhost:8000';
-var U={name:'',av:'&#128522;',lv:'B1',goal:50,xp:0,str:0,les:0,cor:0,tot:0};
-var selAv=null,selLv=null,selGl=null,cur=0,hearts=3,answered=false,selOpt=null;
-var T=[];var CURRENT_TASK=null;var LESSON_SIZE=5;
+var AVTS=['😊','🦊','🐼','🦁','🐸','🌟','🎯','🚀','🌈','💎','🦋','🐬'];
+
+var DB={
+grammar:[
+{id:'g1',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2024',hint:'Сигнал by the time → Past Perfect',question:'By the time we arrived, the train ___ (already/leave).',translation:'К тому времени, как мы прибыли, поезд (уже ушёл) ___.',opts:['had already left','has already left','already left','was leaving'],cor:0,exp:'Past Perfect = had + V3. Действие произошло ДО другого прошедшего. Сигнал: by the time.'},
+{id:'g2',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2023',hint:'suggest / enjoy / avoid → герундий (+ing)',question:'He suggested ___ (go) to the cinema after school.',translation:'Он предложил (пойти) ___ в кино после школы.',opts:['to go','going','go','gone'],cor:1,exp:'После suggest всегда герундий (V+ing). suggest / enjoy / avoid / mind → всегда +ing.'},
+{id:'g3',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2025',hint:'Every year + пассив → is/are + V3',question:'The museum ___ (visit) by thousands of tourists every year.',translation:'Музей (посещается) ___ тысячами туристов каждый год.',opts:['is visited','visits','was visited','has visited'],cor:0,exp:'Passive Present Simple: is/are + V3. Every year → регулярное действие.'},
+{id:'g4',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2023',hint:'Conditional 2: If + Past Simple, would + V',question:'If I ___ (know) the answer, I would tell you.',translation:'Если бы я (знал) ___ ответ, я бы тебе сказал.',opts:['knew','know','had known','would know'],cor:0,exp:'Conditional Type 2 (нереальное): If + Past Simple → would + V. В if-части никогда не пишем would!'},
+{id:'g5',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2024',hint:'Косвенная речь: will → would',question:'She asked me where I ___ (go) the next day.',translation:'Она спросила меня, куда я (пойду) ___ на следующий день.',opts:['was going','am going','went','will go'],cor:0,exp:'Косвенная речь: Future → Future-in-the-Past (was going). Главное предложение в прошедшем → сдвиг времени.'},
+{id:'g6',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2025',hint:'Сигнал since → Present Perfect',question:'They ___ (work) on this project since last Monday.',translation:'Они (работают) ___ над этим проектом с прошлого понедельника.',opts:['have been working','are working','worked','work'],cor:0,exp:'Present Perfect Continuous: have/has + been + V-ing. Сигнал: since — действие началось в прошлом и продолжается.'},
+{id:'g7',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2024',hint:'I wish + прошедшее → нереальное желание',question:'I wish I ___ (can) speak French fluently.',translation:'Жаль, что я не (могу) ___ свободно говорить по-французски.',opts:['could','can','will be able to','would'],cor:0,exp:'I wish + Past Simple: нереальное желание. can → could (прошедшая форма модального глагола).'},
+{id:'g8',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2023',hint:'Вчера + пассив → was/were + V3',question:'The letter ___ (send) to all employees yesterday.',translation:'Письмо (было отправлено) ___ всем сотрудникам вчера.',opts:['was sent','is sent','has been sent','sent'],cor:0,exp:'Passive Voice Past Simple: was/were + V3. Сигнал yesterday → Past.'},
+{id:'g9',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2025',hint:'Сигнал yet → Present Perfect отрицание',question:"She ___ (not finish) her work yet, so she is still in the office.",translation:'Она ещё (не закончила) ___ работу, поэтому всё ещё в офисе.',opts:["hasn't finished","didn't finish","isn't finishing","won't finish"],cor:0,exp:"Present Perfect + yet: haven't/hasn't + V3. Yet стоит в конце предложения."},
+{id:'g10',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2024',hint:'Два прошедших + already → Past Perfect',question:'When I arrived at the station, the train ___ (already/depart).',translation:'Когда я пришёл на вокзал, поезд (уже отправился) ___.',opts:['had already departed','already departed','has already departed','was departing'],cor:0,exp:'Past Perfect = had + V3. Отправление поезда произошло ДО моего прихода.'},
+{id:'g11',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2023',hint:'Conditional 1: If + Present, will + V',question:"If it ___ (not rain) tomorrow, we will go for a picnic.",translation:'Если завтра (не будет дождя), мы пойдём на пикник.',opts:["doesn't rain","won't rain","didn't rain","hadn't rained"],cor:0,exp:"Conditional Type 1 (реальное): If + Present Simple → will + V. В if-части всегда Present Simple!"},
+{id:'g12',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2025',hint:'Сигнал right now → Present Continuous',question:'The students ___ (take) an exam right now.',translation:'Студенты (сдают) ___ экзамен прямо сейчас.',opts:['are taking','take','have taken','took'],cor:0,exp:'Present Continuous = am/is/are + V-ing. Сигнал right now — действие в момент речи.'},
+{id:'g13',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2024',hint:'must + чистый инфинитив (без to)',question:"You ___ (must/tidy) your room — it's a mess!",translation:'Ты должна (убрать) ___ в комнате — там беспорядок!',opts:['must tidy','must to tidy','should to tidy','have to tidying'],cor:0,exp:'must + чистый инфинитив (без to). Модальные глаголы must/can/should + V без to.'},
+{id:'g14',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2023',hint:'До before → Past Perfect',question:'She ___ (live) in London for ten years before moving to Paris.',translation:'Она (прожила) ___ в Лондоне 10 лет, прежде чем переехать в Париж.',opts:['had lived','lived','has lived','was living'],cor:0,exp:'Past Perfect + before: жизнь в Лондоне произошла ДО переезда. had + V3.'},
+{id:'g15',type:'choice',badge:'⚙️ Грамматика · ЕГЭ 2025',hint:'Сигнал last year → Past Simple',question:'Our school team ___ (win) the championship last year.',translation:'Наша команда (выиграла) ___ чемпионат в прошлом году.',opts:['won','has won','wins','had won'],cor:0,exp:'Past Simple — завершённое действие в прошлом. Сигнал last year. win → won (неправильный).'}
+],
+word_formation:[
+{id:'w1',type:'input',badge:'🔧 Словообразование · ЕГЭ 2024',hint:'achieve → суффикс -ment → мн. число',question:'Her ___ (achieve) in science were outstanding.',translation:'Её (достижения) ___ в науке были выдающимися.',cor:'achievements',exp:'achieve → achievement (суффикс -ment) → achievements. Аналогично: develop→development, manage→management.'},
+{id:'w2',type:'input',badge:'🔧 Словообразование · ЕГЭ 2023',hint:'im- перед p/b/m: possible → impossible',question:'It is almost ___ (possible) to learn a language without practice.',translation:'Почти (невозможно) ___ выучить язык без практики.',cor:'impossible',exp:'Приставка im- перед p, b, m: possible→impossible, patient→impatient.'},
+{id:'w3',type:'input',badge:'🔧 Словообразование · ЕГЭ 2024',hint:'science → прилагательное с суффиксом -ific',question:'The ___ (science) community was excited about the discovery.',translation:'(Научное) ___ сообщество было взволновано открытием.',cor:'scientific',exp:'science → scientific. Суффикс -ic/-ific: hero→heroic, atom→atomic.'},
+{id:'w4',type:'input',badge:'🔧 Словообразование · ЕГЭ 2025',hint:'brave → существительное с суффиксом -ry',question:'He showed great ___ (brave) during the rescue operation.',translation:'Он проявил большую (храбрость) ___ во время спасательной операции.',cor:'bravery',exp:'brave → bravery. Суффикс -ry/-ery: brave→bravery, slave→slavery.'},
+{id:'w5',type:'input',badge:'🔧 Словообразование · ЕГЭ 2023',hint:'dis- + agree + -ment = несогласие',question:'The new policy caused wide ___ (disagree) among the public.',translation:'Новая политика вызвала широкое (несогласие) ___ среди общества.',cor:'disagreement',exp:'dis- + agree → disagree → disagreement (-ment).'},
+{id:'w6',type:'input',badge:'🔧 Словообразование · ЕГЭ 2024',hint:'child → прилагательное с суффиксом -ish',question:'Her ___ (child) behaviour surprised everyone at the meeting.',translation:'Её (детское) ___ поведение удивило всех на встрече.',cor:'childish',exp:'child → childish. Суффикс -ish: child→childish, fool→foolish, self→selfish.'},
+{id:'w7',type:'input',badge:'🔧 Словообразование · ЕГЭ 2025',hint:'care → -ful (с качеством) или -less (без)?',question:'Always be ___ (care) when crossing the road.',translation:'Всегда будь (осторожен) ___ при переходе дороги.',cor:'careful',exp:'care → careful (суффикс -ful = с качеством). careful = осторожный, careless = беспечный.'},
+{id:'w8',type:'input',badge:'🔧 Словообразование · ЕГЭ 2023',hint:'happy → наречие: y→i + -ly',question:'She smiled ___ (happy) when she heard the news.',translation:'Она (счастливо) ___ улыбнулась, услышав новость.',cor:'happily',exp:'happy → happily. Наречия: прилагательное + -ly. Если на -y: y→i+ly.'},
+{id:'w9',type:'input',badge:'🔧 Словообразование · ЕГЭ 2024',hint:'employ + -er = тот кто даёт работу',question:'The ___ (employ) offered her a higher salary.',translation:'(Работодатель) ___ предложил ей более высокую зарплату.',cor:'employer',exp:'employ → employer (-er = тот кто...). employee = работник, employer = работодатель.'},
+{id:'w10',type:'input',badge:'🔧 Словообразование · ЕГЭ 2025',hint:'in- перед большинством корней (не p/b/m)',question:'His answer was ___ (correct), so he lost a point.',translation:'Его ответ был (неверным) ___, поэтому он потерял очко.',cor:'incorrect',exp:'in- + correct → incorrect. in- перед большинством корней (im- только перед p/b/m).'}
+],
+reading:[
+{id:'r1',type:'choice',badge:'📖 Чтение · ЕГЭ 2024',
+text:'Social media has transformed the way people communicate. Users can share information instantly across the globe. However, this rapid spread of content has also led to serious problems with misinformation and privacy violations. Experts argue that digital literacy — the ability to critically evaluate online information — has become an essential skill for modern citizens.',
+question:'What is the main idea of this passage?',translation:'О чём главным образом говорится в тексте?',
+opts:['Social media is harmful and should be banned','Social media changed communication and also created new challenges','Misinformation is the only problem of social media','Digital literacy is not important for people'],
+cor:1,exp:'Текст говорит о ПОЛЬЗЕ соцсетей (мгновенный обмен) И ПРОБЛЕМАХ (дезинформация). Ответ B охватывает обе стороны.'},
+{id:'r2',type:'choice',badge:'📖 Чтение · ЕГЭ 2024',
+text:'Climate change is one of the most pressing issues of our time. Rising temperatures are causing glaciers to melt, sea levels to rise, and extreme weather events to become more frequent. Scientists warn that without immediate action, the consequences could be catastrophic for ecosystems and human civilisation alike.',
+question:'According to scientists, what could happen without immediate action?',translation:'Что, по мнению учёных, может произойти без немедленных действий?',
+opts:['Nothing serious will happen','Only economic problems will occur','The consequences could be catastrophic for ecosystems and civilisation','Sea levels will slightly rise'],
+cor:2,exp:'Прямая цитата: "the consequences could be catastrophic for ecosystems and human civilisation". Ищи ключевые слова из вопроса в тексте.'},
+{id:'r3',type:'choice',badge:'📖 Чтение · ЕГЭ 2025',
+text:'Artificial intelligence is rapidly changing the job market. While AI automates routine tasks, it also creates new opportunities in fields like data science and AI ethics. Economists suggest that the key to success in the future economy is adaptability — the ability to learn new skills and work alongside intelligent machines rather than compete with them.',
+question:'What do economists suggest as the key to success?',translation:'Что экономисты называют ключом к успеху?',
+opts:['Avoiding all use of AI','Competing directly with intelligent machines','Adaptability and the ability to learn new skills','Only studying data science'],
+cor:2,exp:'Economists suggest "adaptability — the ability to learn new skills". Ключевые слова: economists, key, success.'}
+],
+listening:[
+{id:'l1',type:'choice',badge:'🎧 Аудирование · ЕГЭ 2024',
+audio:'🎙️ Диктор: "Good morning, everyone. Today we are going to talk about the importance of sleep for teenagers. Research shows that most teenagers need between eight and ten hours of sleep per night. However, many get only six hours or less. Lack of sleep affects memory, concentration and emotional wellbeing."',
+question:'How many hours of sleep do teenagers need according to the speaker?',translation:'Сколько часов сна нужно подросткам по словам диктора?',
+opts:['6–7 hours','7–8 hours','8–10 hours','10–12 hours'],cor:2,
+exp:'Диктор: "most teenagers need between eight and ten hours" — 8–10 часов. Ищи числа и конкретные факты.'},
+{id:'l2',type:'choice',badge:'🎧 Аудирование · ЕГЭ 2023',
+audio:'🎙️ Диктор: "Welcome to the city museum. Our special exhibition on ancient Rome opens tomorrow at nine in the morning. Tickets cost five pounds for adults and three pounds for children under twelve. Students with valid ID get a twenty percent discount."',
+question:'What discount do students receive?',translation:'Какую скидку получают студенты?',
+opts:['10%','15%','20%','25%'],cor:2,
+exp:'Диктор: "Students with valid ID get a twenty percent discount" — скидка 20%.'},
+{id:'l3',type:'choice',badge:'🎧 Аудирование · ЕГЭ 2025',
+audio:'🎙️ Диктор: "Attention passengers! The train to London, scheduled to depart at three fifteen, has been delayed by approximately forty minutes due to engineering works on the line. We apologise for the inconvenience."',
+question:'Why is the train delayed?',translation:'Почему поезд задерживается?',
+opts:['Bad weather','A passenger emergency','Engineering works on the line','Engine problems'],cor:2,
+exp:'Диктор: "delayed due to engineering works on the line". due to = из-за. Ищи причину.'}
+],
+writing:[
+{id:'wt1',type:'choice',badge:'✍️ Письмо · ЕГЭ 2024',question:'Which phrase is most appropriate to START a formal letter?',translation:'Какая фраза лучше всего подходит для НАЧАЛА официального письма?',opts:['Hey! How are you?','Dear Sir/Madam, I am writing to inform you...','Yo, what\'s up?','Hi there, just dropping a line...'],cor:1,exp:'Официальное письмо: Dear Sir/Madam, или Dear Mr/Ms [Фамилия]. "Hey" и "Hi" — неформальный стиль.'},
+{id:'wt2',type:'choice',badge:'✍️ Письмо · ЕГЭ 2023',question:'Which phrase EXPRESSES OPINION in an essay?',translation:'Какая фраза выражает МНЕНИЕ в эссе?',opts:['Once upon a time...','In my opinion, / I believe that...','To cut a long story short...','Last but not least...'],cor:1,exp:'"In my opinion" и "I believe that" — стандартные фразы для выражения мнения на ЕГЭ.'},
+{id:'wt3',type:'choice',badge:'✍️ Письмо · ЕГЭ 2025',question:'Which phrase ADDS another argument?',translation:'Какая фраза ДОБАВЛЯЕТ ещё один аргумент?',opts:['However, on the other hand...','Furthermore, / In addition, / Moreover...','In conclusion, / To sum up...','For example, / For instance...'],cor:1,exp:'"Furthermore", "In addition", "Moreover" — добавление аргументов. However — противопоставление.'}
+],
+speaking:[
+{id:'sp1',type:'choice',badge:'🗣️ Говорение · ЕГЭ 2024',question:'You are describing a photo. Which phrase INTRODUCES a description?',translation:'Вы описываете фото. Какая фраза НАЧИНАЕТ описание?',opts:['Goodbye and see you soon!','In the picture / photo I can see...','I completely disagree.','Would you like some tea?'],cor:1,exp:'"In the picture I can see..." — стандартная фраза для описания фото. Также: There is/are, In the background/foreground.'},
+{id:'sp2',type:'choice',badge:'🗣️ Говорение · ЕГЭ 2023',question:'Which phrase expresses AGREEMENT in a dialogue?',translation:'Какая фраза выражает СОГЛАСИЕ в диалоге?',opts:["I'm afraid I disagree","That's a good point, I completely agree","I'm not sure about that","On the contrary..."],cor:1,exp:'"That\'s a good point" + "I agree" — вежливое согласие. Также: Exactly!, Absolutely!, You\'re right!'},
+{id:'sp3',type:'choice',badge:'🗣️ Говорение · ЕГЭ 2025',question:'Which phrase is used to SPECULATE about a photo?',translation:'Какая фраза используется для ПРЕДПОЛОЖЕНИЙ о фото?',opts:['I know for certain that...','It looks like / It seems that / They might be...','This is definitely wrong.','I have no idea.'],cor:1,exp:'"It looks like", "It seems that", "They might be" — фразы для предположений на ЕГЭ.'}
+]
+};
+
+var TIPS={
+grammar:'<div class="sectip"><span class="stip-t">&#9881;&#65039; &#1043;&#1088;&#1072;&#1084;&#1084;&#1072;&#1090;&#1080;&#1082;&#1072; &#183; &#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1103; 26&#8211;31 &#1045;&#1043;&#1069;</span>&#1053;&#1091;&#1078;&#1085;&#1086; &#1074;&#1089;&#1090;&#1072;&#1074;&#1080;&#1090;&#1100; <b>&#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1091;&#1102; &#1092;&#1086;&#1088;&#1084;&#1091; &#1089;&#1083;&#1086;&#1074;&#1072;</b>. &#1057;&#1084;&#1086;&#1090;&#1088;&#1080; &#1085;&#1072; <b>&#1089;&#1080;&#1075;&#1085;&#1072;&#1083;&#1100;&#1085;&#1099;&#1077; &#1089;&#1083;&#1086;&#1074;&#1072;</b>: <em>by the time, already, since, for, every year, if, yesterday, now, right now</em> &#8212; &#1086;&#1085;&#1080; &#1087;&#1086;&#1076;&#1089;&#1082;&#1072;&#1079;&#1099;&#1074;&#1072;&#1102;&#1090; &#1085;&#1091;&#1078;&#1085;&#1086;&#1077; &#1074;&#1088;&#1077;&#1084;&#1103;. &#1063;&#1080;&#1090;&#1072;&#1081; &#1074;&#1089;&#1105; &#1087;&#1088;&#1077;&#1076;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1077; &#1094;&#1077;&#1083;&#1080;&#1082;&#1086;&#1084;.</div>',
+word_formation:'<div class="sectip"><span class="stip-t">&#128295; &#1057;&#1083;&#1086;&#1074;&#1086;&#1086;&#1073;&#1088;&#1072;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; &#183; &#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1103; 32&#8211;38 &#1045;&#1043;&#1069;</span>&#1054;&#1073;&#1088;&#1072;&#1079;&#1091;&#1081; <b>&#1086;&#1076;&#1085;&#1086;&#1082;&#1086;&#1088;&#1077;&#1085;&#1085;&#1086;&#1077; &#1089;&#1083;&#1086;&#1074;&#1086;</b> &#1085;&#1091;&#1078;&#1085;&#1086;&#1081; &#1095;&#1072;&#1089;&#1090;&#1080; &#1088;&#1077;&#1095;&#1080;. &#1057;&#1091;&#1092;&#1092;&#1080;&#1082;&#1089;&#1099;: <b>-ment, -tion, -ness, -ity, -ful, -less, -ic, -ous</b>. &#1054;&#1090;&#1088;&#1080;&#1094;&#1072;&#1085;&#1080;&#1077;: <b>un-, im-, in-, dis-</b>. &#1057;&#1084;&#1086;&#1090;&#1088;&#1080; &#1085;&#1072; &#1082;&#1086;&#1085;&#1090;&#1077;&#1082;&#1089;&#1090;!</div>',
+reading:'<div class="sectip"><span class="stip-t">&#128214; &#1063;&#1090;&#1077;&#1085;&#1080;&#1077; &#183; &#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1103; 12&#8211;18 &#1045;&#1043;&#1069;</span>&#1057;&#1085;&#1072;&#1095;&#1072;&#1083;&#1072; &#1087;&#1088;&#1086;&#1095;&#1080;&#1090;&#1072;&#1081; <b>&#1090;&#1077;&#1082;&#1089;&#1090; &#1094;&#1077;&#1083;&#1080;&#1082;&#1086;&#1084;</b>, &#1087;&#1086;&#1090;&#1086;&#1084; &#1074;&#1086;&#1087;&#1088;&#1086;&#1089;&#1099;. &#1054;&#1090;&#1074;&#1077;&#1090; &#1074;&#1089;&#1077;&#1075;&#1076;&#1072; <b>&#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1080;&#1090;&#1089;&#1103; &#1074; &#1090;&#1077;&#1082;&#1089;&#1090;&#1077;</b>. &#1048;&#1097;&#1080; &#1082;&#1083;&#1102;&#1095;&#1077;&#1074;&#1099;&#1077; &#1089;&#1083;&#1086;&#1074;&#1072; &#1080;&#1079; &#1074;&#1086;&#1087;&#1088;&#1086;&#1089;&#1072; &#1074; &#1090;&#1077;&#1082;&#1089;&#1090;&#1077;.</div>',
+listening:'<div class="sectip"><span class="stip-t">&#127911; &#1040;&#1091;&#1076;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; &#183; &#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077; 1 &#1045;&#1043;&#1069;</span>&#1053;&#1072; &#1088;&#1077;&#1072;&#1083;&#1100;&#1085;&#1086;&#1084; &#1045;&#1043;&#1069; &#1090;&#1099; <b>&#1091;&#1089;&#1083;&#1099;&#1096;&#1080;&#1096;&#1100; &#1082;&#1086;&#1088;&#1086;&#1090;&#1082;&#1080;&#1081; &#1076;&#1080;&#1072;&#1083;&#1086;&#1075; &#1080;&#1083;&#1080; &#1084;&#1086;&#1085;&#1086;&#1083;&#1086;&#1075;</b> &#1080; &#1074;&#1099;&#1073;&#1077;&#1088;&#1077;&#1096;&#1100; &#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1099;&#1081; &#1086;&#1090;&#1074;&#1077;&#1090;. &#1047;&#1076;&#1077;&#1089;&#1100; &#1090;&#1088;&#1077;&#1085;&#1080;&#1088;&#1091;&#1077;&#1084; <b>&#1087;&#1086;&#1085;&#1080;&#1084;&#1072;&#1085;&#1080;&#1077; &#1089;&#1080;&#1090;&#1091;&#1072;&#1094;&#1080;&#1080; &#1080; &#1082;&#1083;&#1102;&#1095;&#1077;&#1074;&#1099;&#1093; &#1076;&#1077;&#1090;&#1072;&#1083;&#1077;&#1081;</b>. &#1053;&#1072;&#1078;&#1084;&#1080; &#128266; &#1095;&#1090;&#1086;&#1073;&#1099; &#1091;&#1089;&#1083;&#1099;&#1096;&#1072;&#1090;&#1100; &#1090;&#1077;&#1082;&#1089;&#1090;.</div>',
+writing:'<div class="sectip"><span class="stip-t">&#9997;&#65039; &#1055;&#1080;&#1089;&#1100;&#1084;&#1086; &#183; &#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1103; 39&#8211;40 &#1045;&#1043;&#1069;</span>&#1053;&#1072; &#1045;&#1043;&#1069; &#1085;&#1091;&#1078;&#1085;&#1086; &#1085;&#1072;&#1087;&#1080;&#1089;&#1072;&#1090;&#1100; <b>&#1083;&#1080;&#1095;&#1085;&#1086;&#1077; &#1087;&#1080;&#1089;&#1100;&#1084;&#1086;</b> (140&#8211;180 &#1089;&#1083;&#1086;&#1074;) &#1080;&#1083;&#1080; <b>&#1101;&#1089;&#1089;&#1077;</b> (200&#8211;250 &#1089;&#1083;&#1086;&#1074;). &#1047;&#1076;&#1077;&#1089;&#1100; &#1090;&#1088;&#1077;&#1085;&#1080;&#1088;&#1091;&#1077;&#1084; <b>&#1082;&#1083;&#1080;&#1096;&#1077; &#1080; &#1091;&#1089;&#1090;&#1086;&#1081;&#1095;&#1080;&#1074;&#1099;&#1077; &#1092;&#1088;&#1072;&#1079;&#1099;</b>: &#1085;&#1072;&#1095;&#1072;&#1083;&#1086;, &#1074;&#1099;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077; &#1084;&#1085;&#1077;&#1085;&#1080;&#1103;, &#1072;&#1088;&#1075;&#1091;&#1084;&#1077;&#1085;&#1090;&#1099;.</div>',
+speaking:'<div class="sectip"><span class="stip-t">&#128483;&#65039; &#1043;&#1086;&#1074;&#1086;&#1088;&#1077;&#1085;&#1080;&#1077; &#183; &#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077; 3 &#1045;&#1043;&#1069;</span>&#1053;&#1072; &#1088;&#1077;&#1072;&#1083;&#1100;&#1085;&#1086;&#1084; &#1045;&#1043;&#1069; &#1090;&#1077;&#1073;&#1077; <b>&#1087;&#1086;&#1082;&#1072;&#1078;&#1091;&#1090; &#1092;&#1086;&#1090;&#1086;&#1075;&#1088;&#1072;&#1092;&#1080;&#1102;</b> &#1080; &#1076;&#1072;&#1076;&#1091;&#1090; 1.5 &#1084;&#1080;&#1085;&#1091;&#1090;&#1099; &#1085;&#1072; &#1087;&#1086;&#1076;&#1075;&#1086;&#1090;&#1086;&#1074;&#1082;&#1091;, &#1079;&#1072;&#1090;&#1077;&#1084; <b>&#1084;&#1086;&#1085;&#1086;&#1083;&#1086;&#1075; 2 &#1084;&#1080;&#1085;&#1091;&#1090;&#1099;</b>. &#1047;&#1076;&#1077;&#1089;&#1100; &#1090;&#1088;&#1077;&#1085;&#1080;&#1088;&#1091;&#1077;&#1084; <b>&#1082;&#1083;&#1102;&#1095;&#1077;&#1074;&#1099;&#1077; &#1092;&#1088;&#1072;&#1079;&#1099;</b>: &#1086;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077; &#1092;&#1086;&#1090;&#1086;, &#1087;&#1088;&#1077;&#1076;&#1087;&#1086;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103;, &#1084;&#1085;&#1077;&#1085;&#1080;&#1077;.</div>'
+};
+
+var U={name:'',av:'😊',lv:'B1',goal:50,xp:0,str:0,les:0,cor:0,tot:0,secs:{}};
+var selAv=null,selLv=null,selGl=null;
+var cur=0,hearts=3,ans=false,selOpt=null,TASK=null,SEC=null,LS=5;
+var used={},rounds={};
+
 function G(id){return document.getElementById(id)}
 function show(id){document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on')});G(id).classList.add('on')}
-function sv(){try{localStorage.setItem('sp_u',JSON.stringify(U))}catch(e){}}
-function ld(){try{var d=localStorage.getItem('sp_u');if(d)U=JSON.parse(d)}catch(e){}}
+function sv(){try{localStorage.setItem('sp_v4',JSON.stringify(U))}catch(e){}}
+function ld(){try{var d=localStorage.getItem('sp_v4');if(d)U=JSON.parse(d)}catch(e){}}
+function setNav(ids){document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('a')});ids.forEach(function(id){var el=G(id);if(el)el.classList.add('a')})}
+
 function goStep(n){document.querySelectorAll('.ostep').forEach(function(s){s.style.display='none'});var s=G('s'+n);if(s)s.style.display='flex';if(n===2)buildAv()}
-function buildAv(){var g=G('avG');g.innerHTML='';AVTS.forEach(function(a){var b=document.createElement('button');b.className='avb';b.textContent=a;b.addEventListener('click',function(){document.querySelectorAll('.avb').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');selAv=a;G('b2').disabled=false});g.appendChild(b)})}
-function updHome(){var h=new Date().getHours();G('hGr').textContent=h<12?'&#1044;&#1086;&#1073;&#1088;&#1086;&#1077; &#1091;&#1090;&#1088;&#1086;,':h<18?'&#1055;&#1088;&#1080;&#1074;&#1077;&#1090;,':'&#1044;&#1086;&#1073;&#1088;&#1099;&#1081; &#1074;&#1077;&#1095;&#1077;&#1088;,';G('hNm').textContent=U.name+' &#128075;';G('hAv').textContent=U.av;G('hStr').textContent=U.str;G('hXp').textContent=U.xp;G('hLv').textContent=U.lv;G('gXp').textContent=U.goal;G('gXp2').textContent=U.goal;var td=Math.min(U.xp,U.goal);G('tXp').textContent=td;G('dBar').style.width=Math.min(100,Math.round(td/U.goal*100))+'%'}
-function goHome(){updHome();show('home');document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('a')});G('nH').classList.add('a')}
-function startL(){
-  cur=0;hearts=3;answered=false;selOpt=null;CURRENT_TASK=null;
-  updHts();G('lPf').style.width='0%';
-  show('lesson');
-  G('lBd').innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:200px;flex-direction:column;gap:12px"><div style="font-size:32px">&#9889;</div><div style="font-size:14px;color:var(--mut);font-weight:600">&#1047;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1077;&#1084; &#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;...</div></div>';
-  loadTask();
-}
-function renderT(){
-  if(cur>=LESSON_SIZE){showMod();return}
-  G('lPf').style.width=Math.round(cur/LESSON_SIZE*100)+'%';
-  answered=false;selOpt=null;G('rPn').innerHTML='';
-  var t=CURRENT_TASK;
-  if(!t){loadTask();return}
-  var h='<div class="tbdg">'+t.badge+'</div><div class="tq">'+t.question+'</div><div class="tru">&#127479;&#127482; '+t.translation+'</div>';
-  if(t.type==='choice'){
-    h+='<div class="opts">';
-    ['A','B','C','D'].forEach(function(l,i){h+='<button class="opt" data-i="'+i+'"><span class="olet">'+l+'</span>'+t.options[i]+'</button>'});
-    h+='</div><button class="chkb" id="cB">&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1080;&#1090;&#1100;</button>';
-  } else {
-    h+='<input class="ainp" id="aI" type="text" placeholder="&#1053;&#1072;&#1087;&#1080;&#1096;&#1080; &#1086;&#1090;&#1074;&#1077;&#1090;..." autocomplete="off" autocorrect="off" autocapitalize="off">';
-    h+='<div class="hint">&#128161; '+(t.hint||'&#1055;&#1086;&#1076;&#1091;&#1084;&#1072;&#1081; &#1086; &#1092;&#1086;&#1088;&#1084;&#1077; &#1089;&#1083;&#1086;&#1074;&#1072;')+'</div>';
-    h+='<button class="chkb rdy" id="cB">&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1080;&#1090;&#1100;</button>';
-  }
-  G('lBd').innerHTML=h;
-  if(t.type==='choice'){
-    G('lBd').querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){selO(parseInt(b.dataset.i))})});
-  }
-  G('cB').addEventListener('click',function(){t.type==='choice'?chkC():chkI()});
-}
-function selO(i){if(answered)return;selOpt=i;G('lBd').querySelectorAll('.opt').forEach(function(b,x){b.classList.toggle('sel',x===i);var l=b.querySelector('.olet');l.style.background=x===i?'var(--b)':'';l.style.color=x===i?'#fff':''});G('cB').classList.add('rdy')}
-function chkC(){
-  if(answered||selOpt===null)return;
-  answered=true;
-  var t=CURRENT_TASK;
-  var userAns=String(selOpt);
-  // Показываем правильный/неправильный вариант
-  var ok=(selOpt===t.correct_index);
-  U.tot++;if(ok)U.cor++;
-  G('lBd').querySelectorAll('.opt').forEach(function(b,i){
-    if(i===t.correct_index){b.classList.add('cor');var l=b.querySelector('.olet');l.style.background='var(--g)';l.style.color='#fff';}
-    else if(i===selOpt&&!ok){b.classList.add('wrg');var l=b.querySelector('.olet');l.style.background='var(--r)';l.style.color='#fff';}
-  });
-  // Отправляем на сервер для объяснения
-  checkOnServer(t, userAns, ok);
-}
-function chkI(){
-  if(answered)return;
-  answered=true;
-  var t=CURRENT_TASK;
-  var inp=G('aI');
-  var v=inp?inp.value.trim().toLowerCase():'';
-  var ok=v===t.correct.toLowerCase();
-  U.tot++;if(ok)U.cor++;
-  if(inp)inp.classList.add(ok?'cor':'wrg');
-  checkOnServer(t, v, ok);
-}
-function showRes(ok,e,ca){if(!ok){hearts=Math.max(0,hearts-1);updHts()}U.xp+=ok?10:2;sv();G('rPn').innerHTML='<div class="rpnl '+(ok?'ok':'fail')+'"><div class="rico">'+(ok?'&#127881;':'&#128148;')+'</div><div class="rtit">'+(ok?'&#1055;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1086;!':'&#1053;&#1077; &#1089;&#1086;&#1074;&#1089;&#1077;&#1084;...')+'</div><div class="rexp">'+(ok?e:'&#1055;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1099;&#1081; &#1086;&#1090;&#1074;&#1077;&#1090;: <strong>'+ca+'</strong><br>'+e)+'</div><button class="ctbtn" id="ctB">&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1100; &#8594;</button></div>';G('ctB').addEventListener('click',function(){
-  cur++;CURRENT_TASK=null;
-  if(cur<LESSON_SIZE){
-    G('lBd').innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:200px;flex-direction:column;gap:12px"><div style="font-size:32px">&#9889;</div><div style="font-size:14px;color:var(--mut);font-weight:600">&#1047;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1077;&#1084;...</div></div>';
-    G('rPn').innerHTML='';
-    loadTask();
-  } else {
-    renderT();
-  }
-})}
+function buildAv(){var g=G('avG');g.innerHTML='';AVTS.forEach(function(a){var b=document.createElement('button');b.className='ab';b.textContent=a;b.onclick=function(){document.querySelectorAll('.ab').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');selAv=a;G('b2').disabled=false};g.appendChild(b)})}
+G('nameIn').oninput=function(){var v=this.value.trim();G('b1').disabled=v.length<2;this.classList.toggle('ok',v.length>=2)};
+G('b1').onclick=function(){goStep(2)};G('b2').onclick=function(){goStep(3)};G('b3').onclick=function(){goStep(4)};
+document.querySelectorAll('.lb').forEach(function(b){b.onclick=function(){document.querySelectorAll('.lb').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');selLv=b.dataset.lv;G('b3').disabled=false}});
+document.querySelectorAll('.gb').forEach(function(b){b.onclick=function(){document.querySelectorAll('.gb').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');selGl=parseInt(b.dataset.xp);G('b4').disabled=false}});
+G('b4').onclick=function(){U={name:G('nameIn').value.trim(),av:selAv||'😊',lv:selLv||'B1',goal:selGl||50,xp:0,str:0,les:0,cor:0,tot:0,secs:{}};sv();G('wAv').textContent=U.av;G('wNm').textContent=U.name;show('welcome')};
+G('wBtn').onclick=function(){goHome()};
+
+function updHome(){var h=new Date().getHours();G('hGr').textContent=h<12?'Доброе утро,':h<18?'Привет,':'Добрый вечер,';G('hNm').textContent=U.name+' 👋';G('hAv').textContent=U.av;G('hStr').textContent=U.str;G('hXp').textContent=U.xp;G('hLv').textContent=U.lv;G('gXp').textContent=U.goal;G('gXp2').textContent=U.goal;var td=Math.min(U.xp,U.goal);G('tXp').textContent=td;G('dBar').style.width=Math.min(100,Math.round(td/U.goal*100))+'%'}
+function goHome(){updHome();show('home');setNav(['nH'])}
+
+function updProg(){G('pLv').textContent=U.lv;G('pXp').textContent=U.xp;G('pLs').textContent=U.les;G('pSt').textContent=U.str;G('pAc').textContent=U.tot>0?Math.round(U.cor/U.tot*100)+'%':'0%';var s=U.secs||{};var m={grammar:['bGr','pGr'],word_formation:['bWf','pWf'],reading:['bRd','pRd'],listening:['bLs','pLs2'],writing:['bWr','pWr'],speaking:['bSp','pSp']};Object.keys(m).forEach(function(k){var v=s[k]||{cor:0,tot:0};var p=v.tot>0?Math.round(v.cor/v.tot*100):0;G(m[k][0]).style.width=p+'%';G(m[k][1]).textContent=p+'%'})}
+
+G('nH').onclick=function(){goHome()};
+G('nL').onclick=function(){startL(null)};
+G('nP').onclick=function(){updProg();show('progress');setNav(['nP','pnP'])};
+G('nTh').onclick=function(){show('theory');setNav(['nTh','thnTh'])};
+G('startBtn').onclick=function(){startL(null)};
+document.querySelectorAll('.sb2').forEach(function(b){b.onclick=function(){startL(b.dataset.sec)}});
+G('pBk').onclick=function(){goHome()};G('pnH').onclick=function(){goHome()};
+G('pnL').onclick=function(){startL(null)};G('pnP').onclick=function(){updProg();show('progress');setNav(['nP','pnP'])};
+G('pnTh').onclick=function(){show('theory');setNav(['nTh','thnTh'])};
+G('thBk').onclick=function(){goHome()};G('thnH').onclick=function(){goHome()};
+G('thnL').onclick=function(){startL(null)};
+G('thnP').onclick=function(){updProg();show('progress');setNav(['nP','pnP'])};
+G('thnTh').onclick=function(){show('theory');setNav(['nTh','thnTh'])};
+G('lX').onclick=function(){goHome()};
+G('mBtn').onclick=function(){G('modal').classList.remove('on');goHome()};
+
+function getTask(sec){var pool=sec&&DB[sec]?DB[sec]:[];if(!pool.length){Object.keys(DB).forEach(function(k){pool=pool.concat(DB[k])})}var k=sec||'all';if(!used[k])used[k]=[];var avail=pool.filter(function(t){return used[k].indexOf(t.id)<0});if(!avail.length){rounds[k]=(rounds[k]||0)+1;used[k]=[];avail=pool}var t=avail[Math.floor(Math.random()*avail.length)];used[k].push(t.id);return t}
+
+function startL(sec){SEC=sec||null;cur=0;hearts=3;ans=false;selOpt=null;TASK=null;updHts();G('lPf').style.width='0%';show('lesson');nextT()}
+
+function nextT(){if(cur>=LS){showMod();return}G('lBd').innerHTML='<div class="ldng"><div class="ldng-i">&#9889;</div><div class="ldng-t">&#1047;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1077;&#1084; &#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;...</div></div>';G('rPn').innerHTML='';setTimeout(function(){TASK=getTask(SEC);renderT()},280)}
+
+function renderT(){if(!TASK){nextT();return}G('lPf').style.width=Math.round(cur/LS*100)+'%';ans=false;selOpt=null;G('rPn').innerHTML='';
+var t=TASK;var h='';
+if(cur===0&&SEC&&TIPS[SEC])h+=TIPS[SEC];
+h+='<div class="tbdg">'+t.badge+'</div>';
+if(t.audio)h+='<div class="acard">'+t.audio+'</div><button class="aplay" onclick="playAudio()">&#128266; &#1055;&#1088;&#1086;&#1089;&#1083;&#1091;&#1096;&#1072;&#1090;&#1100;</button>';
+if(t.text)h+='<div class="rcard">'+t.text+'</div>';
+h+='<div class="tq">'+t.question+'</div>';
+if(t.translation)h+='<div class="tru">&#127479;&#127482; '+t.translation+'</div>';
+if(t.hint)h+='<div class="hint">&#128161; '+t.hint+'</div>';
+if(t.type==='choice'){h+='<div class="opts">';['A','B','C','D'].forEach(function(l,i){h+='<button class="opt" data-i="'+i+'"><span class="olet">'+l+'</span>'+(t.opts?t.opts[i]:'')+'</button>'});h+='</div><button class="chkb" id="cB">&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1080;&#1090;&#1100;</button>';}
+else{h+='<input class="ainp" id="aI" type="text" placeholder="&#1053;&#1072;&#1087;&#1080;&#1096;&#1080; &#1086;&#1090;&#1074;&#1077;&#1090;..." autocomplete="off" autocorrect="off" autocapitalize="off"><button class="chkb rdy" id="cB">&#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1080;&#1090;&#1100;</button>';}
+G('lBd').innerHTML=h;
+if(t.type==='choice'){G('lBd').querySelectorAll('.opt').forEach(function(b){b.onclick=function(){selO(parseInt(b.dataset.i))}})}
+G('cB').onclick=function(){t.type==='choice'?chkC():chkI()}}
+
+function playAudio(){if(window.speechSynthesis&&TASK){var txt=(TASK.audio||'').replace(/&#127895;&#65039;\s*&#1044;&#1080;&#1082;&#1090;&#1086;&#1088;:/g,'').replace(/🎙️\s*Диктор:/g,'').trim();var u=new SpeechSynthesisUtterance(txt);u.lang='en-GB';u.rate=0.85;speechSynthesis.cancel();speechSynthesis.speak(u)}}
+
+function selO(i){if(ans)return;selOpt=i;G('lBd').querySelectorAll('.opt').forEach(function(b,x){b.classList.toggle('sel',x===i);var l=b.querySelector('.olet');l.style.background=x===i?'var(--b)':'';l.style.color=x===i?'#fff':''});G('cB').classList.add('rdy')}
+
+function chkC(){if(ans||selOpt===null)return;ans=true;var t=TASK,ok=(selOpt===t.cor);U.tot++;if(ok)U.cor++;saveSec(ok);
+G('lBd').querySelectorAll('.opt').forEach(function(b,i){if(i===t.cor){b.classList.add('cor');var l=b.querySelector('.olet');l.style.background='var(--g)';l.style.color='#fff';}else if(i===selOpt&&!ok){b.classList.add('wrg');var l=b.querySelector('.olet');l.style.background='var(--r)';l.style.color='#fff';}});
+showRes(ok,t.opts?t.opts[t.cor]:'',t.exp)}
+
+function chkI(){if(ans)return;ans=true;var t=TASK,inp=G('aI');var v=inp?inp.value.trim().toLowerCase():'';var ok=(v===(t.cor||'').toLowerCase());U.tot++;if(ok)U.cor++;saveSec(ok);if(inp)inp.classList.add(ok?'cor':'wrg');showRes(ok,t.cor,t.exp)}
+
+function saveSec(ok){if(!U.secs)U.secs={};var s=SEC||'grammar';if(!U.secs[s])U.secs[s]={cor:0,tot:0};U.secs[s].tot++;if(ok)U.secs[s].cor++;sv()}
+
+function showRes(ok,ca,exp){if(!ok){hearts=Math.max(0,hearts-1);updHts()}U.xp+=ok?10:2;sv();
+var body=ok?'<div class="rico">&#127881;</div><div class="rtit">&#1055;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1086;!</div><div class="rexp">'+(exp||'&#1054;&#1090;&#1083;&#1080;&#1095;&#1085;&#1086;!')+'</div>':'<div class="rico">&#128148;</div><div class="rtit">&#1053;&#1077; &#1089;&#1086;&#1074;&#1089;&#1077;&#1084;...</div><div class="rexp">&#1055;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1099;&#1081; &#1086;&#1090;&#1074;&#1077;&#1090;: <strong>'+ca+'</strong>'+(exp?'<br>'+exp:'')+'</div>';
+G('rPn').innerHTML='<div class="rpnl '+(ok?'ok':'fail')+'">'+body+'<button class="ctbtn" id="ctB">&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1100; &#8594;</button></div>';
+G('ctB').onclick=function(){cur++;nextT()}}
+
 function updHts(){[1,2,3].forEach(function(i){var h=G('h'+i);if(h)h.classList.toggle('lost',i>hearts)})}
-function showMod(){
-  U.les++;U.str=Math.max(1,U.str);sv();
-  G('mSb').textContent='&#1052;&#1086;&#1083;&#1086;&#1076;&#1077;&#1094;, '+U.name+'! &#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1072;&#1081; &#1074; &#1090;&#1086;&#1084; &#1078;&#1077; &#1076;&#1091;&#1093;&#1077;!';
-  G('modal').classList.add('on');
-  // Сохраняем прогресс на сервер
-  fetch(API_URL+'/progress',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({user_id:U.name||'guest',xp_earned:U.xp,correct:U.cor,total:U.tot,section:'grammar'})
-  }).catch(function(){});
-}
 
-function loadTask(){
-  var sec=null;
-  fetch(API_URL+'/task'+(sec?'?section='+sec:''))
-    .then(function(r){return r.json()})
-    .then(function(task){
-      // Нормализуем поля задания с API
-      CURRENT_TASK={
-        task_id: task.task_id||'',
-        type: task.type||'choice',
-        badge: task.badge||task.b||'ЕГЭ',
-        question: task.question||task.q||'',
-        translation: task.translation||task.r||'',
-        options: task.options||task.o||[],
-        correct: task.correct||task.c||'',
-        correct_index: typeof task.correct==='number'?task.correct:(task.c||0),
-        hint: task.hint||task.h||'',
-        explanation: task.explanation||task.e||''
-      };
-      renderT();
-    })
-    .catch(function(){
-      // Fallback — показываем офлайн задание
-      var fallback=[
-        {task_id:'f1',type:'choice',badge:'&#1043;&#1088;&#1072;&#1084;&#1084;&#1072;&#1090;&#1080;&#1082;&#1072;',question:'She ___ (work) here for 5 years.',translation:'&#1054;&#1085;&#1072; (&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1077;&#1090;) &#1079;&#1076;&#1077;&#1089;&#1100; 5 &#1083;&#1077;&#1090;.',options:['has worked','worked','is working','works'],correct_index:0,correct:0,hint:'',explanation:'Present Perfect: has/have + V3'},
-        {task_id:'f2',type:'input',badge:'&#1057;&#1083;&#1086;&#1074;&#1086;&#1086;&#1073;&#1088;&#1072;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;',question:'She showed great ___ (kind).',translation:'&#1054;&#1085;&#1072; &#1087;&#1088;&#1086;&#1103;&#1074;&#1080;&#1083;&#1072; &#1073;&#1086;&#1083;&#1100;&#1096;&#1091;&#1102; (&#1076;&#1086;&#1073;&#1088;&#1086;&#1090;&#1091;).',correct:'kindness',hint:'kind + &#1089;&#1091;&#1092;&#1092;&#1080;&#1082;&#1089; -ness',explanation:'kind &#8594; kindness (&#1089;&#1091;&#1092;&#1092;&#1080;&#1082;&#1089; -ness)'}
-      ];
-      CURRENT_TASK=fallback[Math.floor(Math.random()*fallback.length)];
-      renderT();
-    });
-}
+function showMod(){U.les++;U.str=Math.max(1,U.str);sv();updHome();G('mSb').textContent='&#1052;&#1086;&#1083;&#1086;&#1076;&#1077;&#1094;, '+U.name+'! &#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1072;&#1081; &#1074; &#1090;&#1086;&#1084; &#1078;&#1077; &#1076;&#1091;&#1093;&#1077;!';G('mcx').textContent='+'+LS*8+' XP &#1079;&#1072;&#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1085;&#1086;';G('modal').classList.add('on')}
 
-function checkOnServer(task, userAnswer, isCorrect){
-  var xp=isCorrect?10:2;
-  // Если правильно — просто показываем результат
-  if(isCorrect){
-    if(!isCorrect)hearts=Math.max(0,hearts-1);
-    U.xp+=xp;sv();
-    showRes(true, task.explanation||'&#1054;&#1090;&#1083;&#1080;&#1095;&#1085;&#1086;!', '');
-    return;
-  }
-  // Если неправильно — запрашиваем объяснение с сервера
-  hearts=Math.max(0,hearts-1);updHts();
-  U.xp+=xp;sv();
-  // Показываем временное объяснение пока грузится
-  var ca=task.type==='choice'?(task.options[task.correct_index]||''):task.correct;
-  showRes(false, task.explanation||'&#1047;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1077;&#1084;...', ca);
-  // Запрашиваем объяснение от Groq
-  fetch(API_URL+'/check',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      user_id:U.name||'guest',
-      task_id:task.task_id||'',
-      question:task.question,
-      user_answer:String(userAnswer),
-      correct_answer:ca,
-      section:task.section||'grammar'
-    })
-  })
-  .then(function(r){return r.json()})
-  .then(function(data){
-    // Обновляем объяснение если пришло с сервера
-    var expEl=G('rPn').querySelector('.rexp');
-    if(expEl&&data.explanation){
-      expEl.innerHTML='&#1055;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1099;&#1081; &#1086;&#1090;&#1074;&#1077;&#1090;: <strong>'+ca+'</strong><br>'+data.explanation;
-    }
-  })
-  .catch(function(){});
-}
-
-G('nameIn').addEventListener('input',function(){var v=this.value.trim();G('b1').disabled=v.length<2;this.classList.toggle('ok',v.length>=2)});
-G('b1').addEventListener('click',function(){goStep(2)});
-G('b2').addEventListener('click',function(){goStep(3)});
-G('b3').addEventListener('click',function(){goStep(4)});
-document.querySelectorAll('.lvb').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.lvb').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');selLv=b.dataset.lv;G('b3').disabled=false})});
-document.querySelectorAll('.gb').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.gb').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');selGl=parseInt(b.dataset.xp);G('b4').disabled=false})});
-G('b4').addEventListener('click',function(){U={name:G('nameIn').value.trim(),av:selAv||'&#128522;',lv:selLv||'B1',goal:selGl||50,xp:0,str:0,les:0,cor:0,tot:0};sv();G('wAv').textContent=U.av;G('wNm').textContent=U.name;show('welcome')});
-G('wBtn').addEventListener('click',function(){goHome()});
-G('startBtn').addEventListener('click',startL);
-document.querySelectorAll('.sbtn').forEach(function(b){b.addEventListener('click',startL)});
-G('nH').addEventListener('click',function(){goHome()});
-G('nL').addEventListener('click',startL);
-G('lX').addEventListener('click',function(){goHome()});
-G('mBtn').addEventListener('click',function(){G('modal').classList.remove('on');goHome()});
-ld();
-show('splash');
-setTimeout(function(){
-  if(U.name){updHome();show('home')}
-  else{show('onboard');goStep(1)}
-},1500);
+ld();show('splash');
+setTimeout(function(){if(U.name){updHome();show('home')}else{show('onboard');goStep(1)}},1500);
 </script>
 </body>
 </html>
